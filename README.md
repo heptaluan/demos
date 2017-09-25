@@ -1,1 +1,1 @@
-一些 `JavaScript` 基础性 `demo`
+一些 `JavaScript` 相关 `demo` 的汇总集合
