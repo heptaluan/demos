@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title>复选框（checkbox）全选/全不选/反选</title>
+<style>
+body,dl,dt,dd,p{margin:0;padding:0;}
+body{font-family:Tahoma;font-size:12px;}
+label,input,a{vertical-align:middle;}
+label{padding:0 10px 0 5px;user-select: none;}
+a{color:#09f;text-decoration:none;}
+a:hover{color:red;}
+dl{width:120px;margin:10px auto;padding:10px 5px;border:1px solid #ccc;border-radius:5px;background:#fafafa;}
+dt{padding-bottom:10px;border-bottom:1px solid #666;}
+dt label{font-weight:700;}
+p{margin-top:10px;}
+</style>
+</head>
+
+<body>
+  <dl>
+    <dt><input type="checkbox" id="checkAll" /><label>全选</label><a href="javascript:;">反选</a></dt>
+    <dd>
+      <p><input type="checkbox" name="item" id="input-01" /><label for="input-01">选项（一）</label></p>
+      <p><input type="checkbox" name="item" id="input-02" /><label for="input-02">选项（二）</label></p>
+      <p><input type="checkbox" name="item" id="input-03" /><label for="input-03">选项（三）</label></p>
+      <p><input type="checkbox" name="item" id="input-04" /><label for="input-04">选项（四）</label></p>
+      <p><input type="checkbox" name="item" id="input-05" /><label for="input-05">选项（五）</label></p>
+      <p><input type="checkbox" name="item" id="input-06" /><label for="input-06">选项（六）</label></p>
+      <p><input type="checkbox" name="item" id="input-07" /><label for="input-07">选项（七）</label></p>
+      <p><input type="checkbox" name="item" id="input-08" /><label for="input-08">选项（八）</label></p>
+      <p><input type="checkbox" name="item" id="input-09" /><label for="input-09">选项（九）</label></p>
+      <p><input type="checkbox" name="item" id="input-10" /><label for="input-10">选项（十）</label></p>
+    </dd>
+  </dl>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>

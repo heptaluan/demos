@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>动画轮播图</title>
+</head>
+
+<body class="standard simple">
+
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/jquery.slider.js"></script>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			var $windowWidth = window.innerWidth;
+			var $windowHeight = window.innerHeight;
+
+			jQuery('body').append('<div id="preloaderMotion" />');
+			jQuery('a.header_arrow').addClass('hidden');
+
+			var $slider = '#sliderMotion';
+			var $preloader = '#preloaderMotion';
+			var $images = jQuery($slider + ' li img');
+			var $max = $images.length;
+
+			$images.each(function () {
+				var img = new Image();
+
+				img.src = jQuery(this).attr('src');
+
+				var intervalId = setInterval(function () {
+					if (img.complete) {
+						clearInterval(intervalId);
+
+						$max--;
+
+						jQuery($preloader).append('<img id="nMotion' + $max + '" src="' + img.src + '" width="60" height="35" alt="" />');
+						jQuery($preloader).find('img#nMotion' + $max).animate({ opacity: 1 }, 500);
+
+						if ($max == 0) {
+							LoadImageStart(jQuery($slider));
+							jQuery($preloader).fadeOut(500, function () {
+								jQuery(this).css({ display: 'none' });
+								showHideContent();
+							});
+						}
+					}
+				}, 50);
+			});
+
+			function LoadImageStart(slider) {
+				slider.cmsmsMotionSlider({
+					sliderWidth: $windowWidth,
+					sliderHeight: $windowHeight,
+					pauseOnHover: false,
+					showPause: false
+				});
+
+				jQuery('a[rel="prettyPhoto[bgSlider]"]').prettyPhoto({ animationSpeed: 'normal', deeplinking: false, social_tools: false });
+			}
+
+			jQuery(window).resize(function () {
+				if (jQuery.browser.msie && jQuery.browser.version < 9) {
+					var $windowWidth = jQuery(window).width() + 17;
+					var $windowHeight = jQuery(window).height();
+				} else {
+					var $windowWidth = window.innerWidth;
+					var $windowHeight = window.innerHeight;
+				}
+
+				jQuery('.cmsmsMotionSliderContainer, .cmsmsMotionSlides, .cmsmsMotionSlides canvas, .cmsmsMotionSlides img, .cmsmsMotionSlides iframe').css({ width: $windowWidth + 'px', height: $windowHeight + 'px' });
+				jQuery('.cmsmsMotionControl').css({ height: $windowHeight + 'px' });
+				jQuery('.cmsmsMotionNavigation').css({ height: parseInt($windowHeight - 195) + 'px' });
+			});
+
+			/* Show/Hide Content */
+			function showHideContent() {
+				if (jQuery('body').hasClass('standard')) {
+					if (jQuery('.standard .header_wrap').css('left') == '10px') {
+						jQuery('.standard .header_wrap').animate({ left: '-242px' }, 700, 'easeInQuint', function () {
+							jQuery('.standard .header_arrow').addClass('hidden').css({ left: '85px' }).animate({ left: '155px' }, 300, 'easeInQuint');
+						});
+						jQuery('.standard #middle').css({ position: 'fixed' }).animate({ left: '-1000px' }, 700, 'easeInQuint');
+					} else {
+						jQuery('.standard .header_arrow').animate({ left: '85px' }, 300, 'easeOutQuint', function () {
+							jQuery(this).removeClass('hidden').css({ left: 0 });
+							jQuery('.standard .header_wrap').animate({ left: '10px' }, 700, 'easeOutQuint');
+							jQuery('.standard #middle').animate({ left: '262px' }, 700, 'easeOutQuint', function () {
+								jQuery(this).css({ position: 'relative' });
+							});
+						});
+					}
+				} else if (jQuery('body').hasClass('vertical')) {
+					if (jQuery('.vertical .header_wrap').css('top') == '0px') {
+						jQuery('.vertical .header_wrap').animate({ top: '-1600px' }, 700, 'easeInQuint', function () {
+							jQuery('.vertical .header_arrow').addClass('hidden');
+							jQuery('.vertical .header_arrow_wrap').css({ position: 'absolute', top: '1600px' });
+
+							jQuery('.vertical .header_arrow').css({ top: '-70px' }).animate({ top: 0 }, 300, 'easeInQuint');
+						});
+						jQuery('.vertical #middle').animate({ top: '1600px' }, 700, 'easeInQuint', function () {
+							jQuery(this).css({ position: 'fixed' });
+						});
+					} else {
+						jQuery('.vertical .header_arrow').animate({ top: '-70px' }, 300, 'easeOutQuint', function () {
+							jQuery(this).removeClass('hidden').css({ top: 0 });
+							jQuery('.vertical .header_arrow_wrap').css({ position: 'relative', top: 0 });
+
+							jQuery('.vertical .header_wrap').animate({ top: 0 }, 700, 'easeOutQuint');
+							jQuery('.vertical #middle').css({ position: 'relative' }).animate({ top: 0 }, 700, 'easeOutQuint');
+						});
+					}
+				} else if (jQuery('body').hasClass('horizon')) {
+					if (jQuery('.horizon .header_wrap').css('top') == '0px') {
+						jQuery('.horizon .header_wrap').animate({ top: '-500px' }, 700, 'easeInQuint', function () {
+							jQuery('.horizon .header_arrow').addClass('hidden').css({ top: '430px' }).animate({ top: '500px' }, 300, 'easeInQuint');
+						});
+						jQuery('.horizon #middle').css({ position: 'fixed' }).animate({ top: '1600px' }, 700, 'easeInQuint');
+					} else {
+						jQuery('.horizon .header_arrow').animate({ top: '430px' }, 300, 'easeOutQuint', function () {
+							jQuery(this).removeClass('hidden').css({ top: '14px' });
+
+							jQuery('.horizon .header_wrap').animate({ top: 0 }, 700, 'easeOutQuint');
+							jQuery('.horizon #middle').animate({ top: parseInt(jQuery('.horizon .header_wrap').height() + 16) + 'px' }, 700, 'easeOutQuint', function () {
+								jQuery(this).css({ position: 'relative' });
+							});
+						});
+					}
+				}
+			}
+		});
+	</script>
+	<!-- slider start -->
+	<ul id="sliderMotion">
+
+		<li data-thumb="img/1.jpg" data-start="center center" data-finish="center center" data-zoom="in">
+			<img src="img/1.jpg" alt="Banner Image 1" />
+		</li>
+		<li data-thumb="img/2.jpg" data-start="bottom center" data-finish="center center" data-zoom="in"
+			data-animation="15">
+			<img src="img/2.jpg" alt="Banner Image 2" />
+		</li>
+		<li data-thumb="img/3.jpg" data-start="bottom center" data-finish="center center" data-zoom="in"
+			data-animation="15">
+			<img src="img/3.jpg" alt="Banner Image 3" />
+		</li>
+		<li data-thumb="img/4.jpg" data-start="center center" data-finish="center center" data-zoom="in">
+			<img src="img/4.jpg" alt="Banner Image 4" />
+		</li>
+		<li data-thumb="img/5.jpg" data-start="bottom center" data-finish="center center" data-zoom="in"
+			data-animation="15">
+			<img src="img/5.jpg" alt="Banner Image 5" />
+		</li>
+		<li data-thumb="img/6.jpg" data-start="center center" data-finish="center center" data-zoom="in">
+			<img src="img/6.jpg" alt="Banner Image 6" />
+		</li>
+		<li data-thumb="img/7.jpg" data-start="bottom left" data-finish="center center" data-zoom="out" data-animation="15">
+			<img src="img/7.jpg" alt="Banner Image 7" />
+		</li>
+		<li data-thumb="img/8.jpg" data-start="bottom center" data-finish="ottom center" data-zoom="in" data-animation="15">
+			<img src="img/8.jpg" alt="Banner Image 8" />
+		</li>
+		<li data-thumb="img/9.jpg" data-start="center center" data-finish="center center" data-zoom="in">
+			<img src="img/9.jpg" alt="Banner Image 9" />
+		</li>
+		<li data-thumb="img/10.jpg" data-start="bottom center" data-finish="center center" data-zoom="in"
+			data-animation="15">
+			<img src="img/10.jpg" alt="Banner Image 10" />
+		</li>
+		<li data-thumb="img/11.jpg" data-start="bottom left" data-finish="ottom center" data-zoom="out">
+			<img src="img/11.jpg" alt="Banner Image 11" />
+		</li>
+		<li data-thumb="img/12.jpg" data-start="bottom center" data-finish="center center" data-zoom="in"
+			data-animation="15">
+			<img src="img/12.jpg" alt="Banner Image 12" />
+		</li>
+
+	</ul>
+	<!-- slider end -->
+
+	<!-- mp3  -->
+	<div id="page" class="hideContent">
+		<audio preload="auto" autoplay loop>
+			<source src="hs.mp3" type="audio/mp3">
+		</audio>
+	</div>
+
+</body>
+
+</html>

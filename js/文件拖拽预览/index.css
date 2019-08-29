@@ -1,0 +1,35 @@
+h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
+div#show {
+  border: 1px solid #ccc;
+  width: 550px;
+  height: 400px;
+  display: -moz-box;
+  display: -webkit-box;
+  -moz-box-align: center;
+  -webkit-box-align: center;
+  -moz-box-pack: center;
+  -webkit-box-pack: center;
+  resize: both;
+  overflow: auto;
+  margin: 100px auto;
+}
+
+div[id^=show]:hover {
+  border: 1px solid #333;
+}
+
+div#main {
+  width: 100%;
+}
+
+div#successLabel {
+  color: Red;
+}
+
+div#content {
+  display: none;
+}

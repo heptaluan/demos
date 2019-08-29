@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title>用键盘控制DIV</title>
+<style type="text/css">
+html,body{overflow:hidden;}
+body{margin:0;padding:0;}
+pre{color:#e45649;padding:10px 15px;background:#ececec;font:12px/1.5 Courier New;margin:12px;}
+span{color:#999;}
+#box{position:absolute;top:50px;left:300px;width:100px;height:100px;background:pink;}
+</style>
+</head>
+
+<body>
+
+	<pre>
+		上：↑ 下：↓ 左：← 右：→
+
+		Ctrl + 1 : 背景变为绿色
+		Ctrl + 2 : 背景变为黄色
+		Ctrl + 3 : 背景变为蓝色
+		Ctrl + ↑ : 放大
+		Ctrl + ↓ : 缩小
+	</pre>
+	<div id="box"></div>
+
+	<script src="./index.js"></script>
+</body>
+
+</html>

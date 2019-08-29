@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+/* CSS Document */
+* {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: "微软雅黑";
+  margin: 0px;
+  padding: 0px;
+  color: #333;
+  font-size: 12px;
+  overflow-x: hidden;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none
+}
+
+img {
+  border: none;
+}
+
+em,
+i {
+  font-weight: normal;
+  font-style: normal;
+}
+
+.l {
+  float: left;
+}
+
+.r {
+  float: right;
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+:-moz-placeholder {
+  color: #ccc;
+}
+
+::-moz-placeholder {
+  color: #ccc;
+}
+
+:-ms-input-placeholder {
+  color: #ccc;
+}
+
+
+/* 第三页 */
+.three {
+  width: 500px;
+  margin: 50px auto;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.chooseCity,
+.chooseCityList {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.chooseCity span {
+  width: 31%;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  font-size: 12px;
+  color: #606266;
+  border: 1px solid #dcdfe6;
+  padding: 0 5%;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.chooseCity span:nth-child(1) {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+}
+
+.chooseCity span:nth-child(2) {
+  margin: 0 auto;
+}
+
+.chooseCity span:nth-child(3) {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+}
+
+.chooseCityList section {
+  width: 31%;
+  display: block;
+  line-height: 40px;
+  font-size: 12px;
+  color: #ccc;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  overflow-y: scroll;
+  border: solid #ccc;
+  border-width: 0 1px 1px;
+  height: 160px;
+}
+
+.chooseCityList section::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+.chooseCityList section::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 147, 153, .5);
+  border-radius: 5px;
+}
+
+.chooseCityList section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chooseCityList section::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.chooseCityList section:nth-child(1) {
+  float: left;
+}
+
+.chooseCityList section:nth-child(2) {
+  margin: 0 auto;
+  position: relative;
+}
+
+.chooseCityList section:nth-child(3) {
+  float: right;
+}
+
+.chooseCityList section span {
+  padding: 0 15px;
+  display: block;
+  color: #606266;
+  cursor: pointer;
+}
+
+.chooseCityList section span.active {
+  color: #ee3333;
+}

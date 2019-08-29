@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  background: #16151f;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #747484;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #747484;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #747484;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #747484;
+}
+
+/* 顶部导航 */
+.nav,
+.imgNav {
+  width: 100%;
+  height: 2rem;
+  border-bottom: 1px solid #3d3d4a;
+  background: #16151f;
+}
+
+.nav div,
+.imgNav div {
+  float: left;
+  line-height: 4rem;
+  text-align: center;
+}
+
+.nav div:first-child,
+.nav div:last-child,
+.imgNav div:first-child,
+.imgNav div:last-child {
+  width: 20%;
+  font-size: .75rem;
+}
+
+.nav div:first-child,
+.imgNav div:first-child {
+  color: #fff;
+}
+
+.nav div:last-child {
+  color: #666;
+}
+
+.imgNav div:last-child {
+  color: #fff;
+}
+
+.nav div:nth-child(2),
+.imgNav div:nth-child(2) {
+  width: 60%;
+  margin: 0 auto;
+  font-size: .9rem;
+  color: #fff;
+}
+
+/* 主体 */
+.main {
+  width: 90%;
+  padding: 0 5% 5% 5%;
+}
+
+
+.cover {
+  width: 100%;
+  height: 15rem;
+  line-height: 15rem;
+  text-align: center;
+  border: 1px dashed #3d3d4a;
+  margin-top: .8rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cover input {
+  width: 100%;
+  height: 15rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.cover span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 15rem;
+  line-height: 15rem;
+  text-align: center;
+  background-size: 1rem;
+  text-indent: 1rem;
+  color: #747484;
+  font-size: .8rem;
+}
+
+
+
+.headline {
+  width: 100%;
+  height: 1.5rem;
+  margin-bottom: .8rem;
+  border-bottom: 1px solid #3d3d4a;
+  padding-bottom: .2rem;
+  margin-top: .2rem;
+}
+
+.headline input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #16151f;
+  font-size: .7rem;
+}
+
+
+/* 上传图片之类 */
+#newImg {
+  width: 100%;
+  height: 100%;
+}
+
+.imgNav {
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+}
+
+.imgContainer {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.imgContainer img {
+  max-width: 100%;
+}
+
+.layui-layer {
+  background: #000 !important;
+}
+
+/* 弹窗样式 */
+.layui-layer-msg {
+  border: none !important;
+}
+
+body .myLayer .layui-layer-content {
+  background: #fff;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  line-height: 4rem;
+  padding: 0;
+  font-size: .7rem;
+  color: #000;
+  overflow: hidden;
+}
+
+body .myLayer .layui-layer-btn {
+  width: 100%;
+  padding: 0;
+}
+
+body .myLayer .layui-layer-btn0,
+body .myLayer .layui-layer-btn1 {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: .7rem;
+  background: #fff;
+  border: none;
+  color: #40a5e6;
+  border: solid #ccc;
+  height: 2rem;
+  line-height: 2rem;
+}
+
+body .myLayer .layui-layer-btn0 {
+  border-radius: 0 0 0 10px;
+  border-width: 1px 1px 0 0;
+}
+
+body .myLayer .layui-layer-btn1 {
+  border-radius: 0 0 10px 0;
+  border-width: 1px 0 0 0;
+}

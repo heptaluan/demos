@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <title>移动端图片裁剪功能</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name='apple-touch-fullscreen' content='yes'>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/cropper.css">
+</head>
+
+<body>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type='application/javascript' src='fastclick.js'></script>
+  <script type="text/javascript" src="js/layer/layer.js"></script>
+  <script src="js/cropper.js"></script>
+  <script type="text/javascript">
+
+    // fastClick 解决移动端 300ms 延迟
+    $(function () {
+      FastClick.attach(document.body);
+    });
+
+  </script>
+
+  <div class="main">
+
+    <div class="cover">
+      <input type="file" id="uploadFile" name="file">
+      <span class="imgTitle">添加图片</span>
+      <img id="newImg" style="display: none;">
+    </div>
+
+  </div>
+
+  <script>
+
+    $(function () {
+
+      // 绑定事件
+      $("#uploadFile").on("change", function () {
+        readAsDataURL();
+      })
+
+      function readAsDataURL() {
+
+        var file = document.getElementById("uploadFile").files[0];
+
+        // 判断是否是图片
+        if (!/image\/\w+/.test(file.type)) {
+          alert("格式不正确！");
+          return false;
+        }
+
+        var reader = new FileReader();
+
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+
+          // 裁剪层
+          layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            shadeClose: true,
+            area: ['100%', '100%'],
+            offset: ["0", "0"],
+            skin: 'shade',
+            content: '<div class="imgNav"><div class="Cancle">取消</div><div>裁剪</div><div class="btn">确定</div></div><div class="imgContainer"><img src=""></div>'
+          });
+
+          $(".imgContainer").css({
+            height: $(document).height()
+          })
+
+          $(".layui-layer-content").css({
+            maxHeight: "100%"
+          })
+
+          // 解决 change-file 只能触发一次，替换+重新绑定事件
+          $('#uploadFile').replaceWith('<input type="file" id="uploadFile" name="file" aa>');
+
+          $("#uploadFile").on("change", function () {
+            readAsDataURL();
+          })
+
+          // 得到的 base64 就在 e.target.result 里面
+          $(".imgContainer img").attr("src", e.target.result)
+
+          var $image = $('.imgContainer img');
+
+          $image.on("load", function () {        // 等待图片加载成功后，才进行图片的裁剪功能  
+            $image.cropper({
+              aspectRatio: 16 / 9  　　// 裁剪比例  
+            });
+          })
+
+          // 裁剪事件
+          $(".btn").on("click", function () {
+            var src = $image.eq(0).attr("src");
+            var canvasdata = $image.cropper("getCanvasData");
+            var cropBoxData = $image.cropper('getCropBoxData');
+
+            convertToData(src, canvasdata, cropBoxData, function (basechar) {
+              layer.closeAll();
+              $("#newImg").attr("src", basechar).show();
+              $(".imgTitle").hide();
+            });
+          })
+
+          $(".Cancle").on("click", function () {
+            layer.closeAll();
+          })
+        }
+
+      }
+
+      function convertToData(url, canvasdata, cropdata, callback) {
+
+        var cropw = cropdata.width;   // 剪切的宽  
+        var croph = cropdata.height;  // 剪切的宽  
+        var imgw = canvasdata.width;  // 图片缩放或则放大后的高  
+        var imgh = canvasdata.height; // 图片缩放或则放大后的高  
+
+        var poleft = canvasdata.left - cropdata.left; // canvas 定位图片的左边位置  
+        var potop = canvasdata.top - cropdata.top;    // canvas 定位图片的上边位置  
+
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext('2d');
+
+        canvas.width = cropw;
+        canvas.height = croph;
+
+        var img = new Image();
+        img.src = url;
+
+        img.onload = function () {
+          this.width = imgw;
+          this.height = imgh;
+          // canvas 与图片的裁剪之间的关系位置  
+          ctx.drawImage(this, poleft, potop, this.width, this.height);
+          var base64 = canvas.toDataURL('image/jpg', 1);  // 这里的 "1" 是指的是处理图片的清晰度（0-1）之间，当然越小图片越模糊，处理后的图片大小也就越小  
+          callback && callback(base64)      // 回调 base64 字符串  
+        }
+      }
+    })
+
+  </script>
+
+
+</body>
+
+</html>
