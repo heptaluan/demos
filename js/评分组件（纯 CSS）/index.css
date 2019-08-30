@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================== 第一种 ================================ */
+
+/* 首先添加默认样式 */
+input {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* 应用字体图标，把星星显示出来（五颗星） */
+.star01 input[name='rate'] {
+  font-family: 'iconfont';
+  font-size: 30px;
+  transition: transform .2s ease;
+}
+
+.star01 input[name="rate"]:nth-child(odd) {
+  direction: rtl;
+}
+
+.star01 input[name='rate']:after {
+  content: '\e645';
+  color: #999;
+  transition: color .4s ease;
+}
+
+.star01 input[name='rate']:hover {
+  transform: scale(1.2);
+}
+
+/* 添加选中和鼠标移入状态，连带右侧兄弟节点一起设置 */
+.star01 input[name='rate']:checked::after,
+.star01 input[name='rate']:hover::after,
+.star01 input[name='rate']:checked ~ input[name='rate']::after,
+.star01 input[name='rate']:hover ~ input[name='rate']::after {
+  content: '\e73c';
+  color: #ffa822;
+}
+
+/* input 反转排列 */
+.star01 {
+  display: flex;
+  flex-flow: row-reverse;
+  margin: 10px 0;
+}
+
+
+/* ============================== 第二种 ================================ */
+
+/* 首先添加默认样式 */
+.star02 input {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* 应用字体图标，把星星显示出来（十颗星） */
+.star02 input[name='rate'] {
+  font-family: 'iconfont';
+  font-size: 30px;
+  width: 15px;
+  overflow: hidden;
+  transition: transform .2s ease;
+}
+
+.star02 input[name="rate"]:nth-child(odd) {
+  direction: rtl;
+}
+
+.star02 input[name='rate']:after {
+  content: '\e645';
+  color: #999;
+  transition: color .4s ease;
+}
+
+/* 添加选中和鼠标移入状态，连带右侧兄弟节点一起设置 */
+.star02 input[name='rate']:checked::after,
+.star02 input[name='rate']:hover::after,
+.star02 input[name='rate']:checked ~ input[name='rate']::after,
+.star02 input[name='rate']:hover ~ input[name='rate']::after {
+  content: '\e73c';
+  color: #ffa822;
+}
+
+/* input 反转排列 */
+.star02 {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+
+/* ============================== 第三种 ================================ */
+
+/* 选择框 */
+.star03 {
+  font-size: 0;
+  position: relative;
+  float: right;
+  margin: 15px 35px 0 0;
+}
+
+/* label 标签样式 */
+.star-item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAMAAADJ7yrpAAAAYFBMVEUAAAD92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92Un92UmCTPEWAAAAH3RSTlMA9iwe++hAgPLJo13i3Td8JO3Sk4xtYkYUC76cVBIjGgBFCwAAAMtJREFUKM+1kUkOhCAQRUEFBHGep67737JRlEFNJ73wbyAv9WtRD/1O3z/AqrqzDqC7spEAkPECGagwlwRJE28wbpJAk5xjcIJ5rmBBwAsp9nLpsvJYkMWWxRk6QrHZSJFJesIU2UQnjCwLwSQ0kG4zQmzzdmcCuA5VocaQGNiyQX8G1qK/8q6jNH1wtCx3RxwhfnUkM3Vs6ToSdNUDK52NI6JL+4R1JD/HYaXriOsP9xxN+p08R0JV1ZlnzxELRBSJIPccSe1IvufoCxGAFoLwSVOBAAAAAElFTkSuQmCC') center top no-repeat;
+}
+
+/* 隐藏掉选择框，只显示星星标记，默认全部都有背景色 */
+.star03 input[type='radio'] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0)
+}
+
+/* 将紧接在选中元素之后的 item 清除掉背景色 */
+.star03 input[type='radio']:checked + .star-item ~ .star-item {
+  background-position: center bottom;
+}
+
+/* 鼠标移入全部添加背景色 */
+.star03:hover label.star-item {
+  background-position: center top !important;
+}
+
+/* item 鼠标移入右侧清空背景色 */
+label.star-item:hover ~ .star-item {
+  background-position: center bottom !important;
+}
+
+/* 取值 */
+.star-item:after {
+  position: absolute;
+  width: 100px;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  right: 0;
+  margin-right: -105px;
+  color: #666
+}
+
+.star03:hover .star-item:after {
+  content: '' !important
+}
+
+/* 获取选中元素的对应 title */
+input[type='radio']:checked + .star-item:after {
+  content: attr(title)
+}
+
+/* 鼠标移入也显示 */
+.star03:hover .star-item:hover:after {
+  content: attr(title) !important
+}
