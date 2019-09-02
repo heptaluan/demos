@@ -12,7 +12,7 @@ address,caption,cite,code,dfn,em,i,th,var{font-style:normal;font-weight:normal;}
 legend{color:#000;}
 abbr,acronym{border:0;font-variant:normal;}
 a{color:#0a8cd2;text-decoration:none;cursor: pointer;}
-a img{width: 980px;height: 400px;}
+a img{width: 980px;height: 400px;object-fit: cover;}
 a:hover{text-decoration:underline;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
 .clearfix{display:inline-block;}
@@ -20,7 +20,7 @@ a:hover{text-decoration:underline;}
 .clear{clear:both;height:0;font:0/0 Arial;visibility:hidden;}
 .none{display:none}
 /* main.css */
-.wrapper{text-align:center;width:980px;margin:0px auto;position:relative}
+.wrapper{text-align:center;width:980px;margin:0px auto;position:relative;margin-top: 50px;}
 #index-banner{width:980px;height:208px}
 .img-li-float{float:left}
 #box ul{ z-index:2;}

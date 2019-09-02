@@ -9,7 +9,7 @@ a {
 }
 
 .on {
-  background: RGB(238, 246, 255);
+  background: #fff;
 }
 
 body {
@@ -35,12 +35,12 @@ table {
 
 th,
 td {
-  border: 1px solid #CADEFF;
+  border: 1px solid #ececec;
 }
 
 th {
-  background: #e2f2ff;
-  border-top: 3px solid #a7cbff;
+  background: #ececec;
+  border-top: 3px solid #ececec;
   height: 30px;
 }
 
@@ -50,7 +50,7 @@ td {
 }
 
 tbody tr:hover {
-  background: RGB(238, 246, 255);
+  background: #f8f8f8;
 }
 
 .checkbox {
@@ -136,9 +136,9 @@ a:hover {
 img {
   width: 100px;
   height: 80px;
-  /*border: 1px solid #ccc;*/
   margin-right: 10px;
   float: left;
+  object-fit: cover;
 }
 
 .foot {

@@ -24,5 +24,6 @@ a:hover{text-decoration:underline;}
 .main-promo .switch-item{width:25%;height:36px;padding:0 10px;text-align:center;line-height:36px;margin-left:1px;color:white;cursor:pointer;float:left;font-size:12px;overflow:hidden;background:black;background:rgba(0,0,0,0.7);filter:alpha(opacity=70);-ms-filter:"alpha(opacity=70)";margin: 0;box-sizing: border-box;}
 .main-promo .first-item{margin-left:0}
 .main-promo .active-switch-item{background:red;background:rgba(255,0,0,0.7);filter:alpha(opacity=70);-ms-filter:"alpha(opacity=70)"}
-.main-promo .main-item{position:absolute;left:0;top:0;width:711px;height:342px}
-.main-promo .main-item img{width:711px;height:342px}
+.main-promo .main-item{position:absolute;left:0;top:0;width:711px;height:342px;opacity: 0;}
+.main-promo .main-item:nth-of-type(1){opacity: 1;}
+.main-promo .main-item img{width:711px;height:342px;object-fit: cover;}

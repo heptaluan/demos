@@ -43,6 +43,10 @@ body {
   filter: alpha(opacity=0);
 }
 
+#box .list li img {
+  object-fit: cover;
+}
+
 #box .list li.current {
   opacity: 1;
   filter: alpha(opacity=100);
