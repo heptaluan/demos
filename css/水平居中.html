@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>水平居中</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ---------- */
+
+  .box00 {
+    width: 500px;
+    height: 50px;
+    background: #5EFFFA;
+    margin: 0 auto 35px;
+  }
+
+  /* ---------- */
+
+  .box01 {
+    height: 50px;
+    background: #5EFFFA;
+    display: table;
+    margin: 0 auto 35px;
+  }
+
+  /* ---------- */
+
+  .box02 {
+    height: 50px;
+    background: #5EFFFA;
+    width: fit-content;
+    margin: 0 auto 35px;
+  }
+
+  /* ---------- */
+
+  .box03 {
+    height: 50px;
+    background: #5EFFFA;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+
+  .inner03 {
+    background: #E6B4FD;
+  }
+
+  /* ---------- */
+
+  .box04 {
+    height: 50px;
+    background: #5EFFFA;
+    margin-bottom: 35px;
+    text-align: center
+  }
+
+  .inner04 {
+    background: #E6B4FD;
+    display: inline-block;
+  }
+
+  /* ---------- */
+
+  .box05 {
+    height: 50px;
+    background: #5EFFFA;
+    margin-bottom: 35px;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-pack: center;
+    display: -o-box;
+    -o-box-orient: horizontal;
+    -o-box-pack: center;
+    display: -ms-box;
+    -ms-box-orient: horizontal;
+    -ms-box-pack: center;
+    margin-bottom: 35px;
+  }
+
+  .inner05 {
+    background: #E6B4FD;
+  }
+
+  /* ---------- */
+
+  .box06 {
+    height: 100px;
+    background: #5EFFFA;
+    margin-bottom: 35px;
+    text-align: center
+  }
+
+  .inner06 {
+    line-height: 100px;
+  }
+
+  /* ---------- */
+
+  .box07 {
+    width: 200px;
+    height: 100px;
+    background: #5EFFFA;
+    display: table;
+    margin: 0 auto 35px;
+  }
+
+  .inner07 {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  /* ---------- */
+
+  .box08 {
+    width: 200px;
+    background: #5EFFFA;
+    margin: 0 auto 35px;
+  }
+
+  .inner08 {
+    padding: 30px 0;
+  }
+
+  /* ---------- */
+
+  .box09 {
+    width: 200px;
+    height: 100px;
+    background: #5EFFFA;
+    text-align: center;
+    margin: 0 auto 35px;
+  }
+
+  .box09:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .inner09 {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    display: inline-block;
+    background: #E6B4FD;
+  }
+
+  /* ---------- */
+
+  .box10 {
+    width: 200px;
+    height: 100px;
+    background: #5EFFFA;
+    margin: 0 auto 35px;
+    position: relative;
+  }
+
+  .inner10 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    background: #E6B4FD;
+  }
+
+  /* ---------- */
+
+  .box11 {
+    width: 200px;
+    height: 100px;
+    background: #5EFFFA;
+    margin: 0 auto 35px;
+    position: relative;
+  }
+
+  .inner11 {
+    width: 50px;
+    height: 50px;
+    background: #E6B4FD;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+
+  /* ---------- */
+
+  .box12 {
+    width: 200px;
+    height: 100px;
+    background: #5EFFFA;
+    margin: 0 auto 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inner12 {
+    width: 50px;
+    height: 50px;
+    background: #E6B4FD;
+  }
+
+  /* ---------- */
+
+  .box13 {
+    width: 200px;
+    height: 100px;
+    background: #5EFFFA;
+    margin: 0 auto 35px;
+  }
+
+  .inner13 {
+    width: 50px;
+    height: 50px;
+    background: #E6B4FD;
+    transform: matrix(1, 0, 0, 1, 75, 25);
+  }
+
+
+</style>
+
+<body>
+
+  <header>定宽水平居中：marge</header>
+  <div class="box00">
+    <div class="inner00">test</div>
+  </div>
+
+  <header>不定宽水平居中：table</header>
+  <div class="box01">
+    <div class="inner01">test</div>
+  </div>
+
+  <header>不定宽水平居中：fit-content（注意兼容性）</header>
+  <div class="box02">
+    <div class="inner02">test</div>
+  </div>
+
+  <header>不定宽水平居中：flex（设置子元素）</header>
+  <div class="box03">
+    <div class="inner03">test</div>
+  </div>
+
+  <header>不定宽水平居中：text-align</header>
+  <div class="box04">
+    <div class="inner04">test</div>
+  </div>
+
+  <header>不定宽水平居中：flex 2009 版</header>
+  <div class="box05">
+    <div class="inner05">test</div>
+  </div>
+
+  <header>单行文本垂直居中：line-height</header>
+  <div class="box06">
+    <div class="inner06">test</div>
+  </div>
+
+  <header>多行文本垂直居中：table-cell</header>
+  <div class="box07">
+    <div class="inner07">测试测试测试测试测试测试测试测试测试测试</div>
+  </div>
+
+  <header>多行文本垂直居中：padding</header>
+  <div class="box08">
+    <div class="inner08">测试测试测试测试测试测试测试测试测试测试</div>
+  </div>
+
+  <header>水平垂直居中：vertical-align</header>
+  <div class="box09">
+    <div class="inner09">test</div>
+  </div>
+
+  <header>水平垂直居中：position</header>
+  <div class="box10">
+    <div class="inner10">test</div>
+  </div>
+
+  <header>水平垂直居中：transform</header>
+  <div class="box11">
+    <div class="inner11">test</div>
+  </div>
+
+  <header>水平垂直居中：flex</header>
+  <div class="box12">
+    <div class="inner12">test</div>
+  </div>
+
+  <header>水平垂直居中：matrix</header>
+  <div class="box13">
+    <div class="inner13">test</div>
+  </div>
+
+
+  <!-- <header>水平垂直居中，方式一：使用定位
+  <div class="wrap02">
+    <div class="inner02"></div>
+  </div>
+
+  <header>水平垂直居中，方式二：使用 transform</header>
+  <div class="wrap03">
+    <div class="inner04"></div>
+  </div> -->
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>定位布局</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper {
+    width: 700px;
+    height: 200px;
+    margin: 50px auto;
+  }
+
+  .header,
+  .content,
+  .sidebar,
+  .footer {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+  }
+
+  .header {
+    height: 40px;
+    line-height: 40px;
+    background: #ACF4B6;
+  }
+
+  .content {
+    position: relative;
+    height: 90px;
+    line-height: 90px;
+  }
+
+  .content .left {
+    width: calc(20% - 1px);
+    height: 100%;
+    background: #FFE975;
+    border-right: 1px solid #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .content .right {
+    width: calc(80% - 1px);
+    height: 100%;
+    background: #5EFFFA;
+    border-left: 1px solid #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .footer {
+    height: 40px;
+    line-height: 40px;
+    background: #E6B4FD;
+  }
+</style>
+
+<body>
+  <div class="wrapper">
+    <div class="header">Header</div>
+    <div class="content">
+      <div class="left">Sidebar</div>
+      <div class="right">Content</div>
+    </div>
+    <div class="footer">Footer</div>
+  </div>
+</body>
+
+</html>

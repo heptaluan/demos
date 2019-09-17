@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双飞翼布局</title>
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #333;
+    background: #DADADA;
+    padding: 20px;
+  }
+
+  header p {
+    margin-bottom: 5px;
+  }
+
+  .wrapper {
+    margin: 50px auto;
+    overflow: hidden;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    height: 200px;
+    float: left;
+    background: #E6B4FD;
+  }
+
+  .content {
+    margin-left: 200px;
+    margin-right: 200px;
+    word-break: break-all;
+  }
+
+  .left {
+    width: 200px;
+    height: 200px;
+    float: left;
+    color: #666;
+    font-size: 18px;
+    background: #FFE975;
+    margin-left: -100%;
+  }
+
+  .right {
+    width: 200px;
+    height: 200px;
+    float: left;
+    color: #666;
+    font-size: 18px;
+    background: #5EFFFA;
+    margin-left: -200px;
+  }
+</style>
+
+<body>
+  <header>
+    <p>主要原理：</p>
+    <p>同圣杯布局类似，主要区别在于处理中间被遮挡部分不同</p>
+    <p>为了使中间 div 内容不被遮挡，直接在中间 div 内部创建子 div 用于放置内容，在该子 div 里用 margin-left 和 margin-right 为左右两栏 div 留出位置</p>
+    <p>相较之下，双飞翼布局多了一个 div，但是少用了大致四个 css 属性（不需要使用定位了）</p>
+  </header>
+  <div class="wrapper">
+    <div class="content-wrapper">
+      <div class="content">Content</div>
+    </div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+  </div>
+</body>
+
+</html>
