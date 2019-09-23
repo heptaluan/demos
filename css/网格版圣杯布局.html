@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>网格圣杯布局</title>
+</head>
+
+<style>
+  h6 {
+    width: 800px;
+    margin: 50px auto 5px;
+  }
+
+  .container01,
+  .container02,
+  .container03,
+  .container04 {
+    width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 50px 350px 50px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 5px;
+    grid-template-areas:
+      "h h h h h h h h h h h h"
+      "m m c c c c c c c c c c"
+      "f f f f f f f f f f f f";
+  }
+
+  .container02 {
+    grid-template-areas:
+      "h h h h h h h h h h h h"
+      "c c c c c c c c c c m m"
+      "f f f f f f f f f f f f";
+  }
+
+  .container03, .container04 {
+    grid-template-areas:
+      ". h h h h h h h h h h ."
+      "c c c c c c c c c c m m"
+      ". f f f f f f f f f f .";
+  }
+
+  @media screen and (max-width: 960px) {
+    .container04 {
+      grid-template-areas:
+        "m m m m m m h h h h h h"
+        "c c c c c c c c c c c c"
+        "f f f f f f f f f f f f";
+    }
+  }
+
+  .header {
+    grid-area: h;
+    background: #BBF1BB;
+  }
+
+  .menu {
+    grid-area: m;
+    background: #FDE886;
+  }
+
+  .content {
+    grid-area: c;
+    background: #8AFCF9;
+  }
+
+  .footer {
+    grid-area: f;
+    background: #DFB8F8;
+  }
+</style>
+
+<body>
+
+  <h6>使用网格区域（grid-template-areas）</h6>
+  <div class="container01">
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="content">CONTENT</div>
+    <div class="footer">FOOTER</div>
+  </div>
+
+  <h6>随意调整一下</h6>
+  <div class="container02">
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="content">CONTENT</div>
+    <div class="footer">FOOTER</div>
+  </div>
+
+  <h6>使用点 . 来创建空白的网格单元格</h6>
+  <div class="container03">
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="content">CONTENT</div>
+    <div class="footer">FOOTER</div>
+  </div>
+
+  <h6>添加响应式</h6>
+  <div class="container04">
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="content">CONTENT</div>
+    <div class="footer">FOOTER</div>
+  </div>
+
+</body>
+
+</html>

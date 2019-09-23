@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>网格布局</title>
+</head>
+<style>
+
+body {
+  padding: 0 0 100px;
+}
+
+h6 {
+  width: 600px;
+  margin: 30px auto 5px;
+}
+
+.wrapper01 {
+  display: grid;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px;
+}
+
+.wrapper02 {
+  display: grid;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  grid-template-columns: 250px 150px 200px;
+  grid-template-rows: 100px 80px;
+}
+
+.wrapper03, .wrapper04, .wrapper05, .wrapper06, .wrapper07, .wrapper08, .wrapper09, .wrapper10 {
+  display: grid;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+}
+
+.wrapper06 {
+  grid-template-rows: 150px 100px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wrapper07 {
+  height: 300px;
+  grid-template-rows: minmax(100px, 200px) minmax(50px, 200px);
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wrapper08 {
+  grid-template-rows: repeat(2, 200px);
+  grid-template-columns: repeat(3, 200px);
+}
+
+.wrapper09 {
+  width: 640px;
+  grid-template-rows: 200px 200px;
+  grid-template-columns: 200px 200px 200px;
+  grid-row-gap: 10px;
+  grid-column-gap: 20px;
+}
+
+.wrapper10 {
+  width: 830px;
+  grid-template-columns: repeat(4, 200px);
+  grid-template-rows: repeat(3, 200px);
+  grid-gap: 10px;
+}
+
+.item1 {
+  background: #ACF4B6;
+}
+
+.item2 {
+  background: #FFE975;
+}
+
+.item3 {
+  background: #5EFFFA;
+}
+
+.item4 {
+  background: #E6B4FD;
+}
+
+.item5 {
+  background: #8DFECD;
+}
+
+.item6 {
+  background: #FD9A5C;
+}
+
+.item7 {
+  background: #7b8ed6;
+}
+
+.item8 {
+  background: #e87171;
+}
+
+.item9 {
+  background: #8de24e;
+}
+
+.wrapper04-item01 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.wrapper05-item01 {
+  grid-column: 1/3;
+}
+
+.wrapper05-item03 {
+  grid-row: 2/4;
+}
+
+.wrapper05-item04 {
+  grid-column: 2/4;
+}
+
+.wrapper10-item04 {
+  grid-row: 2/4;
+  grid-column: 1/3;
+}
+
+</style>
+<body>
+  <h6>默认布局</h6>
+  <div class="wrapper01">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>自定义 grid-template-columns</h6>
+  <div class="wrapper02">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>3x3 网格</h6>
+  <div class="wrapper03">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div class="item7">7</div>
+    <div class="item8">8</div>
+    <div class="item9">9</div>
+  </div>
+
+  <h6>第一个子元素占据整行</h6>
+  <div class="wrapper04">
+    <div class="item1 wrapper04-item01">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>自定义子元素排列方式</h6>
+  <div class="wrapper05">
+    <div class="item1 wrapper05-item01">1</div>
+    <div class="item2 wrapper05-item02">2</div>
+    <div class="item3 wrapper05-item03">3</div>
+    <div class="item4 wrapper05-item04">4</div>
+    <div class="item5 wrapper05-item05">5</div>
+    <div class="item6 wrapper05-item06">6</div>
+  </div>
+
+  <h6>使用 fr 单位</h6>
+  <div class="wrapper06">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>使用 minmax()</h6>
+  <div class="wrapper07">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>使用 repeat()</h6>
+  <div class="wrapper08">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>使用 grid-row-gap</h6>
+  <div class="wrapper09">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+  </div>
+
+  <h6>合并单元格</h6>
+  <div class="wrapper10">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4 wrapper10-item04">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div class="item7">7</div>
+    <div class="item8">8</div>
+    <div class="item9">9</div>
+  </div>
+</body>
+</html>
