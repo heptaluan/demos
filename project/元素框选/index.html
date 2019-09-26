@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>元素框选</title>
+<script src="../../jquery.js"></script>
+<style>
+.dragbox {float: left;list-style: none;width: 100px;height: 100px;border: 1px solid;margin: 20px;user-select: none;}
+.draging {background-color: aquamarine;}
+.selected {background-color: #FF0;}
+</style>
+</head>
+
+<body>
+
+  <ul style="display: inline-block">
+    <li class="dragbox" id="box1">1</li>
+    <li class="dragbox" id="box2">2</li>
+    <li class="dragbox" id="box3">3</li>
+    <li class="dragbox" id="box4">4</li>
+    <li class="dragbox" id="box5">5</li>
+    <li class="dragbox" id="box6">6</li>
+    <li class="dragbox" id="box7">7</li>
+    <li class="dragbox" id="box8">8</li>
+    <li class="dragbox" id="box9">9</li>
+    <li class="dragbox" id="box10">10</li>
+    <li class="dragbox" id="box11">11</li>
+    <li class="dragbox" id="box12">12</li>
+    <li class="dragbox" id="box13">13</li>
+    <li class="dragbox" id="box14">14</li>
+    <li class="dragbox" id="box15">15</li>
+    <li class="dragbox" id="box16">16</li>
+    <li class="dragbox" id="box17">17</li>
+    <li class="dragbox" id="box18">18</li>
+    <li class="dragbox" id="box19">19</li>
+    <li class="dragbox" id="box20">20</li>
+  </ul>
+  <div id="selectionRect" style="position: absolute;background-color: rgba(137,189,189,0.5);border:1px solid rgb(137,189,189);"></div>
+  
+</body>
+
+</html>
+
+<script>
+  var rector = $('#selectionRect');
+  var startX = 0;
+  var startY = 0;
+
+  $(window).on({
+    mousemove: function (e) {
+      if (e.which === 1) {
+        rector.show();
+        resizeToPoint(e.pageX, e.pageY);
+        handleRectSelection();
+      }
+    },
+    mouseup: function () {
+      rector.hide();
+      console.log($('ul').find('.selected'))
+    },
+    mousedown: function (e) {
+      startX = e.pageX;
+      startY = e.pageY;
+      rector.css({
+        top: startY + 'px',
+        left: startX + 'px'
+      });
+    }
+  });
+  
+  // 设定位置
+  function resizeToPoint(x, y) {
+    var width = Math.abs(x - startX);
+    var height = Math.abs(y - startY);
+
+    rector.width(width);
+    rector.height(height);
+
+    // 当鼠标 x 方向上为向左拖动 设置 left 位置
+    if (x < startX) {
+      rector.css({
+        left: (startX - width) + 'px',
+      });
+    }
+
+    // 当鼠标 y 方向上为向上拖动 设置 top 位置
+    if (y < startY) {
+      rector.css({
+        top: (startY - height) + 'px',
+      });
+    }
+  }
+
+  // 相交算法
+  function isCross(rect1, rect2) {
+    var xNotCross = true;  // x 方向上不重合
+    var yNotCross = true;  // y 方向上不重合
+    xNotCross = ((rect1.x1 > rect2.x2) || (rect2.x1 > rect1.x2));
+    yNotCross = ((rect1.y1 > rect2.y2) || (rect2.y1 > rect1.y2));
+    return !(xNotCross || yNotCross);
+  }
+  
+  // 获取元素的矩形的起始点坐标与其对角点坐标
+  function getRect($el) {
+    var x1 = $el.offset().left;
+    var y1 = $el.offset().top;
+    var x2 = x1 + $el.outerWidth();
+    var y2 = y1 + $el.outerHeight();
+    return { x1, x2, y1, y2 };
+  }
+
+  // 框选处理 如果元素与选择框相交则设置样式
+  function handleRectSelection() {
+    var selectionReact = getRect(rector);
+    $('.dragbox').each(function () {
+      var rect = getRect($(this));
+      if (isCross(selectionReact, rect)) {
+        $(this).addClass('selected');
+      } else {
+        $(this).removeClass('selected');
+      }
+    });
+  }
+</script>

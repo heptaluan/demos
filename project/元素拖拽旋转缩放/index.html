@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>元素拖拽旋转缩放</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <div class="wrap-box" style="transform: scale(1); width: 800px; height: 600px; border: 1px solid red; margin: 50px auto; position: relative;">
+    
+    <!-- 三个测试按钮 -->
+    <div class="test aaa" style="transform: rotate(0);position: absolute;left: 100px; top: 80px;width: 100px;height:100px;background: rgb(83, 174, 235);"></div>
+    <div class="test bbb" style="transform: rotate(35deg);position: absolute;left: 550px; top: 120px;width: 200px;height:100px;background: rgb(206, 108, 206);"></div>
+    <div class="test ccc" style="transform: rotate(0);position: absolute;left: 230px; top: 280px;width: 300px;height:200px;background: rgb(92, 196, 123);"></div>
+
+
+    <!-- 拖拽盒子 -->
+    <div class="magic-box">
+      <div class="rotate">
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSItNzE5MyA0MjM2IDQ0IDQ0Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjM2EzYTNhOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsdGVyOiB1cmwoI2VsbGlwc2UtMTQpOwogICAgICB9CiAgICA8L3N0eWxlPgogICAgPGZpbHRlciBpZD0iZWxsaXBzZS0xNCIgeD0iLTcxOTMiIHk9IjQyMzYiIHdpZHRoPSI0NCIgaGVpZ2h0PSI0NCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPGZlT2Zmc2V0IGR5PSIzIiBpbnB1dD0iU291cmNlQWxwaGEiLz4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMyIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAuMTYxIi8+CiAgICAgIDxmZUNvbXBvc2l0ZSBvcGVyYXRvcj0iaW4iIGluMj0iYmx1ciIvPgogICAgICA8ZmVDb21wb3NpdGUgaW49IlNvdXJjZUdyYXBoaWMiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8ZyBpZD0iR3JvdXBfMTY4IiBkYXRhLW5hbWU9Ikdyb3VwIDE2OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTgwNzMgNDAwOCkiPgogICAgPGcgY2xhc3M9ImNscy0zIiB0cmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAxLCA4MDczLCAtNDAwOCkiPgogICAgICA8Y2lyY2xlIGlkPSJlbGxpcHNlLTE0LTIiIGRhdGEtbmFtZT0iZWxsaXBzZS0xNCIgY2xhc3M9ImNscy0xIiBjeD0iMTMiIGN5PSIxMyIgcj0iMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03MTg0IDQyNDIpIi8+CiAgICA8L2c+CiAgICA8ZyBpZD0iZ3JvdXAtMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5NS40OTIgMjQwLjMwNikiPgogICAgICA8ZyBpZD0iZ3JvdXAiPgogICAgICAgIDxwYXRoIGlkPSJwYXRoIiBjbGFzcz0iY2xzLTIiIGQ9Ik0xMi44Myw4Ljg2N2E2LjYxNSw2LjYxNSwwLDEsMS0xLjc4NC03LjE2aDBMMTIuMzM3LjQxM2MuMjMtLjIzLjQxNi0uMTUzLjQxNS4xNzNMMTIuNzM5LDMuODZhLjYuNiwwLDAsMS0uNTkyLjU5MmwtMy4yNTYuMDA2Yy0uMzI2LDAtLjQtLjE4Ni0uMTczLS40MTZsMS4zMjctMS4zMjhBNS4xOTUsNS4xOTUsMCwxLDAsMTEuNSw4LjM2N2guMDA2YS43MDkuNzA5LDAsMSwxLDEuMzIxLjVaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=">
+      </div>
+      <div class="draggable"></div>
+      <div class="resizable">
+        <span class="tl resizable-handle" draggable="true" style="cursor: nwse-resize;"></span>
+        <span class="t resizable-handle" draggable="true" style="cursor: ns-resize;"></span>
+        <span class="tr resizable-handle" draggable="true" style="cursor: nesw-resize;"></span>
+        <span class="r resizable-handle" draggable="true" style="cursor: ew-resize;"></span>
+        <span class="br resizable-handle" draggable="true" style="cursor: nwse-resize;"></span>
+        <span class="b resizable-handle" draggable="true" style="cursor: ns-resize;"></span>
+        <span class="bl resizable-handle" draggable="true" style="cursor: nesw-resize;"></span>
+        <span class="l resizable-handle" draggable="true" style="cursor: ew-resize;"></span>
+      </div>
+    </div>
+
+  </div>
+
+  
+  <script type="text/javascript">
+
+    var magicBox, parentBox, rotateHandler, resizeHandlers;
+
+    const test = document.querySelectorAll('.test')
+    for (let i = 0; i < test.length; i++) {
+      test[i].addEventListener('mousedown', function() {
+        
+        let {left, top, width, height} = this.style
+
+        let opts = {
+          left: Number.parseInt(left),
+          top: Number.parseInt(top),
+          width: Number.parseInt(width),
+          height: Number.parseInt(height),
+          rotate: Number.parseInt(/\(([^()]+)\)/g.exec(this.style.transform)[1]),
+          scale: 1
+        }
+
+        initSelectElement(this, opts);
+      })
+    }
+
+    // 点击其他位置隐藏拖拽框
+    document.querySelector('.wrap-box').addEventListener('mousedown', function(e) {
+      if (e.target.classList.contains('wrap-box')) {
+        document.querySelector('.magic-box').style.display = 'none'
+        e.preventDefault()
+      }
+    })
+
+    // 初始化操作
+    function initSelectElement(target, opts) {
+
+      // 获取元素
+      magicBox = document.querySelector('.magic-box');
+      parentBox = document.querySelector('.wrap-box')
+      dragElement = document.querySelector('.magic-box .draggable');
+      rotateHandler = document.querySelector('.magic-box .rotate');
+      resizeHandlers = Array.prototype.slice.call(document.querySelectorAll('.magic-box .resizable-handle'), 0);
+
+      // 初始化之后显示拖拽框体
+      magicBox.style.display = 'block'
+
+      // 设置盒子初始值
+      draw(magicBox, opts);
+
+      // 设置鼠标默认位置
+      setCursorStyle(0);
+
+      // 绑定拖拽事件
+      bindMoveEvents({
+        dragElement: target,
+        magicBox: magicBox,
+        target: target,
+        opts: opts,
+        callback: function() {
+          console.log(`拖拽停止`)
+        }
+      });
+
+      // 绑定旋转事件
+      bindRotateEvents({
+        node: rotateHandler,
+        box: magicBox,
+        parentBox: parentBox,
+        target: target,
+        opts: opts,
+        callback: function() {
+          console.log(`旋转停止`)
+        }
+      });
+
+      // 绑定缩放事件
+      resizeHandlers.map(function (resizeElement) {
+        bindResizeEvents({
+          node: resizeElement,
+          magicBox: magicBox,
+          parentBox: parentBox,
+          target: target,
+          opts: opts,
+          callback: function() {
+            console.log(`缩放停止`)
+          }
+        });
+      });
+    }
+
+    // 绑定拖拽事件
+    function bindMoveEvents(options) {
+      const {dragElement, magicBox, target, opts, callback} = options
+      const originLeft = opts.left
+      const originTop = opts.top
+      dragElement.onmousedown = function () {
+        var event = window.event,
+          deltaX = event.pageX / opts.scale - opts.left,
+          deltaY = event.pageY / opts.scale - opts.top;
+        document.onmousemove = function () {
+          var event = window.event
+          opts.left = event.pageX / opts.scale - deltaX;
+          opts.top = event.pageY / opts.scale - deltaY;
+
+          draw(magicBox, opts);
+          draw(target, opts);
+        }
+        document.onmouseup = function () {
+          document.onmousemove = null;
+          document.onmouseup = null;
+          if (originLeft !== opts.left || originTop !== opts.top) {
+            callback && callback(opts)
+          }
+        }
+      }
+      dragElement.ondragstart = function (event) {
+        event.preventDefault();
+        return false;
+      }
+    }
+
+    // 绑定旋转事件
+    function bindRotateEvents(options) {
+      const {node, box, parentBox, target, opts, callback} = options
+      node.onmousedown = function () {
+        // 旋转开始
+        var event = window.event,
+          point = getConterPoint(box),
+          prevAngle = Math.atan2(event.pageY - parentBox.offsetTop - point.top, event.pageX - parentBox.offsetLeft - point.left) - opts.rotate * Math.PI / 180;
+
+          document.onmousemove = function () {
+          // 旋转
+          var event = window.event,
+            angle = Math.atan2(event.pageY - parentBox.offsetTop - point.top, event.pageX - parentBox.offsetLeft - point.left);
+            opts.rotate = Math.floor((angle - prevAngle) * 180 / Math.PI);
+            draw(box, opts);
+            draw(target, opts);
+        }
+        document.onmouseup = function () {
+          // 旋转结束
+          document.onmousemove = null;
+          document.onmouseup = null;
+          setCursorStyle(opts.rotate);
+          callback && callback()
+        }
+      }
+      node.ondragstart = function (event) {
+        event.preventDefault();
+        return false;
+      }
+    }
+
+    // 绑定缩放事件
+    function bindResizeEvents(options) {
+      const {node, magicBox, parentBox, target, opts, callback} = options
+      node.onmousedown = function () {
+        // 缩放开始
+        var event = window.event;
+        event.preventDefault();
+        var { left, top, width, height, rotate } = opts;
+        var ex = event.pageX - parentBox.offsetLeft;
+        var ey = event.pageY - parentBox.offsetTop;
+
+        // 计算初始状态旋转后的 rect
+        var transformedRect = transform({
+          left,
+          top,
+          width,
+          height
+        }, rotate);
+
+        // 取得旋转后的八点坐标
+        var { point } = transformedRect;
+        
+        // 获取当前点和对角线点
+        var pointAndOpposite = getPointAndOpposite(point, ex, ey);
+        
+        var { opposite } = pointAndOpposite;
+
+        // 对角线点的索引即为缩放基点索引
+        var baseIndex = opposite.index;
+
+        var oppositeX = opposite.point.left;
+        var oppositeY = opposite.point.top;
+
+        // 鼠标释放点距离当前点对角线点的偏移量
+        var offsetWidth = Math.abs(ex - oppositeX);
+        var offsetHeight = Math.abs(ey - oppositeY);
+
+        // 记录最原始的状态
+        var oPoint = {
+          left,
+          top,
+          width,
+          height,
+          rotate
+        };
+
+        document.onmousemove = function () {
+          var event = window.event;
+
+          var nex = event.pageX - parentBox.offsetLeft;
+          var ney = event.pageY - parentBox.offsetTop;
+
+          var scale = {
+            left: 1,
+            top: 1
+          };
+
+          var realScale = 1;
+
+          // 判断是根据 x 方向的偏移量来计算缩放比还是 y 方向的来计算
+          if (offsetWidth > offsetHeight) {
+            realScale = Math.abs(nex - oppositeX) / offsetWidth;
+          } else {
+            realScale = Math.abs(ney - oppositeY) / offsetHeight;
+          }
+
+          if ([0, 2, 4, 6].indexOf(baseIndex) >= 0) {
+            scale.left = scale.top = realScale;
+          } else if ([1, 5].indexOf(baseIndex) >= 0) {
+            scale.top = realScale;
+          } else if ([3, 7].indexOf(baseIndex) >= 0) {
+            scale.left = realScale;
+          }
+
+          var newRect = getNewRect(oPoint, scale, transformedRect, baseIndex);
+          opts.left = newRect.left;
+          opts.top = newRect.top;
+          opts.width = newRect.width;
+          opts.height = newRect.height;
+          draw(magicBox, opts);
+          draw(target, opts);
+        }
+        document.onmouseup = function () {
+          document.onmousemove = null;
+          document.onmouseup = null;
+          callback && callback()
+        }
+      }
+    }
+
+    // 重绘视图
+    function draw(el, ops) {
+      css(el, {
+        left: ops.left + 'px',
+        top: ops.top + 'px',
+        width: ops.width + 'px',
+        height: ops.height + 'px',
+        transform: 'rotate(' + ops.rotate + 'deg)'
+      });
+    }
+
+    // 获取 css 属性
+    function css(node, ops) {
+      for (var index in ops) {
+        node['style'][index] = ops[index];
+      }
+    }
+
+    // 设置鼠标样式
+    function setCursorStyle(degree) {
+      var top = document.querySelector('.t'),
+        topRight = document.querySelector('.tr'),
+        right = document.querySelector('.r'),
+        bottomRight = document.querySelector('.br'),
+        bottom = document.querySelector('.b'),
+        bottomLeft = document.querySelector('.bl'),
+        left = document.querySelector('.l'),
+        topLeft = document.querySelector('.tl'),
+        cursorStyle = getNewCursorArray(degree);
+      css(top, { 'cursor': cursorStyle[0] });
+      css(topRight, { 'cursor': cursorStyle[1] });
+      css(right, { 'cursor': cursorStyle[2] });
+      css(bottomRight, { 'cursor': cursorStyle[3] });
+      css(bottom, { 'cursor': cursorStyle[4] });
+      css(bottomLeft, { 'cursor': cursorStyle[5] });
+      css(left, { 'cursor': cursorStyle[6] });
+      css(topLeft, { 'cursor': cursorStyle[7] });
+    }
+
+    // 获取点的鼠标手势
+    function getNewCursorArray(degree) {
+      const cursorStyleArray = ['ns-resize', 'nesw-resize', 'ew-resize', 'nwse-resize', 'ns-resize', 'nesw-resize', 'ew-resize', 'nwse-resize'];
+
+      const ARR_LENGTH = 8;
+      const STEP = 45;
+
+      let startIndex = 0;
+
+      if (degree) {
+        startIndex = Math.floor(degree / STEP);
+        if (degree % STEP > (STEP / 2)) {
+          startIndex += 1;
+        }
+      }
+
+      if (startIndex > 1) {
+        const len = ARR_LENGTH - startIndex;
+        return (cursorStyleArray.slice(startIndex, startIndex + len))
+          .concat(cursorStyleArray.slice(0, startIndex));
+      }
+
+      return cursorStyleArray;
+    }
+
+    // 取得 rect 中心点
+    function getConterPoint(box) {
+      return {
+        left: box.offsetLeft + box.offsetWidth / 2,
+        top: box.offsetTop + box.offsetHeight / 2
+      };
+    }
+
+    // 取得鼠标释放点在 rect 八点坐标中的对应点及其对角线点
+    function getPointAndOpposite(point, ex, ey) {
+      let oppositePoint = {};
+      let currentPoint = {};
+
+      let minDelta = 1000;
+      let currentIndex = 0;
+      let oppositeIndex = 0;
+
+      point.forEach((target, index) => {
+        const delta = Math.sqrt(Math.pow(target.left - ex, 2) + Math.pow(target.top - ey, 2))
+        if (delta < minDelta) {
+          currentPoint = target;
+          currentIndex = index;
+          minDelta = delta;
+          // 对角线点 index 相差4
+          let offset = 4;
+          let oIndex = index - offset;
+          if (oIndex < 0) {
+            oIndex = index + offset;
+          }
+          // 取对角线点坐标
+          oppositePoint = point.slice(oIndex, oIndex + 1)[0];
+          oppositeIndex = oIndex;
+        }
+      });
+
+      return {
+        current: {
+          index: currentIndex,
+          point: currentPoint
+        },
+        opposite: {
+          index: oppositeIndex,
+          point: oppositePoint
+        }
+      };
+    }
+
+    // 根据缩放基点和缩放比例取得新的 rect
+    function getNewRect(oPoint, scale, oTransformedRect, baseIndex) {
+      var scaledRect = getScaledRect({
+        left: oPoint.left,
+        top: oPoint.top,
+        width: oPoint.width,
+        height: oPoint.height,
+        scale: scale
+      });
+
+      var transformedRotateRect = transform(scaledRect, oPoint.rotate);
+
+      // 计算到平移后的新坐标
+      var translatedX = oTransformedRect.point[baseIndex].left - transformedRotateRect.point[baseIndex].left + transformedRotateRect.left;
+      var translatedY = oTransformedRect.point[baseIndex].top - transformedRotateRect.point[baseIndex].top + transformedRotateRect.top;
+
+      // 计算平移后元素左上角的坐标
+      var newX = translatedX + transformedRotateRect.width / 2 - scaledRect.width / 2;
+      var newY = translatedY + transformedRotateRect.height / 2 - scaledRect.height / 2;
+
+      // 缩放后元素的高宽
+      var newWidth = scaledRect.width;
+      var newHeight = scaledRect.height;
+
+      return {
+        left: newX,
+        top: newY,
+        width: newWidth,
+        height: newHeight
+      };
+    }
+
+    // 取得缩放指定倍数后的坐标
+    function getScaledRect(params, baseIndex) {
+      // params    rect
+      // baseIndex 基点索引
+      var { left, top, width, height, scale } = params;
+      var offset = {
+        left: 0,
+        top: 0
+      };
+      var deltaXScale = scale.left - 1;
+      var deltaYScale = scale.top - 1;
+      var deltaWidth = width * deltaXScale;
+      var deltaHeight = height * deltaYScale;
+      var newWidth = width + deltaWidth;
+      var newHeight = height + deltaHeight;
+      var newX = left - deltaWidth / 2;
+      var newY = top - deltaHeight / 2
+      if (baseIndex) {
+        var points = [{ left, top }, { left: left + width, top }, { left: left + width, top: top + height }, { left, top: top + height }];
+        var newPoints = [{ left: newX, top: newY }, { left: newX + newWidth, top: newY }, { left: newX + newWidth, top: newY + newHeight }, { left: newX, top: newY + newHeight }];
+        offset.left = points[baseIndex].left - newPoints[baseIndex].left;
+        offset.top = points[baseIndex].top - newPoints[baseIndex].top;
+      }
+      return {
+        left: newX + offset.left,
+        top: newY + offset.top,
+        width: newWidth,
+        height: newHeight
+      }
+    }
+
+    // 获取旋转指定角度后的 rect
+    function transform(options, angle) {
+      // options rect
+      // angle   旋转角度
+      var left = options.left;
+      var top = options.top;
+      var width = options.width;
+      var height = options.height;
+
+      var r = Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2)) / 2;
+      var a = Math.round(Math.atan(height / width) * 180 / Math.PI);
+      var tlbra = 180 - angle - a;
+      var trbla = a - angle;
+      var ta = 90 - angle;
+      var ra = angle;
+
+      var halfWidth = width / 2;
+      var halfHeight = height / 2;
+
+      var middleX = left + halfWidth;
+      var middleY = top + halfHeight;
+
+      var topLeft = {
+        left: middleX + r * Math.cos(tlbra * Math.PI / 180),
+        top: middleY - r * Math.sin(tlbra * Math.PI / 180)
+      };
+      var top = {
+        left: middleX + halfHeight * Math.cos(ta * Math.PI / 180),
+        top: middleY - halfHeight * Math.sin(ta * Math.PI / 180),
+      };
+      var topRight = {
+        left: middleX + r * Math.cos(trbla * Math.PI / 180),
+        top: middleY - r * Math.sin(trbla * Math.PI / 180)
+      };
+      var right = {
+        left: middleX + halfWidth * Math.cos(ra * Math.PI / 180),
+        top: middleY + halfWidth * Math.sin(ra * Math.PI / 180),
+      };
+      var bottomRight = {
+        left: middleX - r * Math.cos(tlbra * Math.PI / 180),
+        top: middleY + r * Math.sin(tlbra * Math.PI / 180)
+      };
+      var bottom = {
+        left: middleX - halfHeight * Math.sin(ra * Math.PI / 180),
+        top: middleY + halfHeight * Math.cos(ra * Math.PI / 180),
+      }
+      var bottomLeft = {
+        left: middleX - r * Math.cos(trbla * Math.PI / 180),
+        top: middleY + r * Math.sin(trbla * Math.PI / 180)
+      };
+      var left = {
+        left: middleX - halfWidth * Math.cos(ra * Math.PI / 180),
+        top: middleY - halfWidth * Math.sin(ra * Math.PI / 180),
+      }
+
+      var minX = Math.min(topLeft.left, topRight.left, bottomRight.left, bottomLeft.left);
+      var maxX = Math.max(topLeft.left, topRight.left, bottomRight.left, bottomLeft.left);
+      var minY = Math.min(topLeft.top, topRight.top, bottomRight.top, bottomLeft.top);
+      var maxY = Math.max(topLeft.top, topRight.top, bottomRight.top, bottomLeft.top);
+
+      return {
+        point: [topLeft, top, topRight, right, bottomRight, bottom, bottomLeft, left],
+        width: maxX - minX,
+        height: maxY - minY,
+        left: minX,
+        right: maxX,
+        top: minY,
+        bottom: maxY
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

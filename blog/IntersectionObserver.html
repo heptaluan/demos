@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IntersectionObserver</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 30px 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    h6 {
+      width: 600px;
+      margin: 30px auto 5px;
+    }
+
+    .wrapper01,
+    .wrapper02,
+    .wrapper03,
+    .wrapper04 {
+      width: 600px;
+      height: 250px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      overflow: scroll;
+    }
+
+    .wrapper01 .parent,
+    .wrapper02 .parent,
+    .wrapper03 .parent,
+    .wrapper04 .parent {
+      width: 100%;
+      height: 999px;
+    }
+
+    .wrapper01 .box {
+      width: 120px;
+      height: 120px;
+      background: #499AFF;
+      margin: 50px auto;
+    }
+
+    .wrapper02 .box {
+      width: 120px;
+      height: 120px;
+      float: left;
+      background: #499AFF;
+      margin: 36px;
+    }
+
+    .wrapper03 .box {
+      width: 120px;
+      height: 120px;
+      background: #499AFF;
+      margin: 50px auto;
+    }
+
+    .wrapper04 .parent {
+      height: auto;
+    }
+
+    .wrapper04 img {
+      width: 200px;
+      height: 130px;
+      display: block;
+      object-fit: cover;
+      margin: 70px auto;
+    }
+
+    .wrapper05 {
+      width: 600px;
+      height: 250px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+
+    .wrapper05 .parent {
+      width: 3600px;
+      height: 250px;
+    }
+
+    .wrapper05 img {
+      width: 200px;
+      height: 130px;
+      margin: 60px 200px;
+      object-fit: cover;
+      float: left;
+    }
+
+    .wrapper06 {
+      width: 600px;
+      height: 250px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .wrapper06 .parent {
+      width: 600px;
+    }
+
+    .wrapper06 li {
+      width: 400px;
+      height: 60px;
+      margin: 30px auto;
+      background: #ccc;
+      font-size: 30px;
+      color: #fff;
+      text-align: center;
+      line-height: 60px;
+    }
+
+    .wrapper07 {
+      width: 400px;
+      height: 250px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .wrapper07 .parent {
+      display: grid;
+      grid-template-rows: repeat(5, 150px);
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      padding-top: 300px;
+    }
+
+    .wrapper07 li {
+      width: 150px;
+      height: 100px;
+      background: #499AFF;
+      margin: 0 auto;
+    }
+
+    .wrapper07 li.show {
+      animation: left 1s ease;
+    }
+
+    .wrapper07 li.show:nth-child(2n) {
+      animation: right 1s ease;
+    }
+
+    @keyframes left {
+      from {
+        opacity: 0;
+        transform: translate(-40px, 40px);
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes right {
+      from {
+        opacity: 0;
+        transform: translate(40px, 40px);
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <center>打开控制台查看滚动结果</center>
+
+  <h6>单个元素滚动监听</h6>
+  <div class="wrapper01">
+    <div class="parent">
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <h6>横向多个元素滚动监听</h6>
+  <div class="wrapper02">
+    <div class="parent">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <h6>竖向多个元素滚动监听</h6>
+  <div class="wrapper03">
+    <div class="parent">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <h6>竖直方向图片懒加载</h6>
+  <div class="wrapper04">
+    <div class="parent">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/79.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/81.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/82.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/83.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/84.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/85.jpg">
+    </div>
+  </div>
+
+  <h6>水平方向图片懒加载</h6>
+  <div class="wrapper05">
+    <div class="parent">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/79.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/81.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/82.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/83.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/84.jpg">
+      <img src="https://via.placeholder.com/200x130"
+        data-origin="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/85.jpg">
+    </div>
+  </div>
+
+  <h6>触底</h6>
+  <div class="wrapper06">
+    <ul class="parent">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+    <!-- 参照元素 -->
+    <div class="footer"></div>
+  </div>
+
+  <h6 style="width: 400px;">动画效果</h6>
+  <div class="wrapper07">
+    <ul class="parent">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <script>
+
+    // 示例一
+    let box01 = document.querySelector('.wrapper01 .box')
+    let observe01 = new IntersectionObserver(entries => {
+      entries.forEach(item => {
+        let tips = item.isIntersecting ? `进入` : `离开`
+        console.log(tips)
+      })
+    }, {
+      root: document.querySelector('.wrapper01')
+    })
+
+    observe01.observe(box01)
+
+
+    // 示例二
+    let box02 = document.querySelectorAll('.wrapper02 .box')
+    let observe02 = new IntersectionObserver(entries => console.log(`发生交叉行为，目标元素个数为 ${entries.length} 个`))
+
+    box02.forEach(item => observe02.observe(item))
+
+    // 示例三
+    let box03 = document.querySelectorAll('.wrapper03 .box')
+    let observe03 = new IntersectionObserver(entries => console.log(`发生交叉行为，目标元素个数为 ${entries.length} 个`))
+
+    box03.forEach(item => observe03.observe(item))
+
+    // 示例三
+    let images01 = document.querySelectorAll('.wrapper04 img')
+    let observe04 = new IntersectionObserver(entries => {
+      entries.forEach(item => {
+        if (item.isIntersecting) {
+          item.target.src = item.target.dataset.origin
+          observe04.unobserve(item.target)
+        }
+      })
+    })
+
+    images01.forEach(item => observe04.observe(item))
+
+    // 示例四
+    let images02 = document.querySelectorAll('.wrapper05 img')
+    let observe05 = new IntersectionObserver(entries => {
+      entries.forEach(item => {
+        if (item.isIntersecting) {
+          item.target.src = item.target.dataset.origin
+          observe05.unobserve(item.target)
+        }
+      })
+    })
+
+    images02.forEach(item => observe05.observe(item))
+
+    // 示例五
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        console.log(`滚动到了底部！`)
+      }
+    }).observe(document.querySelector('.footer'))
+
+    // 示例六
+    let list = document.querySelectorAll('.wrapper07 li')
+    let observe06 = new IntersectionObserver(entries => {
+      entries.forEach(item => {
+        if (item.isIntersecting) {
+          item.target.classList.add('show')
+          observe06.unobserve(item.target)
+        }
+      })
+    })
+
+    list.forEach(item => observe06.observe(item))
+
+
+  </script>
+
+</body>
+
+</html>
