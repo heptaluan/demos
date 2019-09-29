@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS 中一些小技巧汇总</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+  <center style="margin-top: 40px;">原文地址见 <a href="https://heptaluan.github.io/2019/09/27/CSS/13/" target="_blank">CSS
+      中一些小技巧汇总</a></center>
+
+  <div class="main">
+
+    <div class="box01">
+      <h5 id="01">不变宽高比（等比）</h5>
+      <div class="box"></div>
+    </div>
+
+    <div class="box02">
+      <h5 id="02">图片在容器中自适应</h5>
+      <div class="wrapper">
+        <div class="l">
+          <img class="img" src="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/81.jpg">
+        </div>
+        <div class="vs">VS</div>
+        <div class="c">
+          <img class="img" src="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/81.jpg">
+        </div>
+        <div class="vs">VS</div>
+        <div class="r">
+          <img class="img" src="https://raw.githubusercontent.com/heptaluan/blog/master/backups/cdn/cover/81.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="box03">
+      <h5 id="03">将元素垂直居中于另一个元素</h5>
+      <div class="wrapper">
+        <div class="center">
+          <p>这是一段测试文本（深色区域是由我撑开的）</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box04">
+      <h5 id="04">最后一项占满剩余高度</h5>
+      <div class="wrapper">
+        <div class="header">Header</div>
+        <div class="content">Content</div>
+        <div class="footer">
+          <div>Footer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box05">
+      <h5 id="05">列表计数器</h5>
+      <div class="wrapper">
+        <ul>
+          <li>
+            List item
+            <ul>
+              <li>List item</li>
+            </ul>
+          </li>
+          <li>List item</li>
+          <li>
+            List item
+            <ul>
+              <li>List item</li>
+              <li>List item</li>
+              <li>List item</li>
+            </ul>
+          </li>
+          <li>List item</li>
+          <li>List item
+            <ul>
+              <li>List item</li>
+              <li>List item</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box06">
+      <h5 id="06">创建动态阴影（基于元素本身颜色）</h5>
+      <div class="wrapper">
+        <div class="box"></div>
+      </div>
+    </div>
+
+    <div class="box07">
+      <h5 id="07">鼠标悬停渐变效果</h5>
+      <div class="wrapper">
+        <button>
+          <span>Hover me</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="box08">
+      <h5 id="08">重置所有样式</h5>
+      <div class="wrapper">
+        <p>这是一段测试文本（这一段文本属性没有被重置，默认使用的继承过来的属性）</p>
+        <p>这是一段测试文本（这一段文本属性已被重置，使用控制台可以发现继承过来的属性均已重置）</p>
+      </div>
+    </div>
+
+    <div class="box09">
+      <h5 id="09">形状分隔符</h5>
+      <div class="wrapper">
+        <div class="box"></div>
+      </div>
+    </div>
+
+    <div class="box10">
+      <h5 id="10">滑动开关</h5>
+      <div class="wrapper">
+        <input type="checkbox" id="checkbox" /> <label for="checkbox" class="switch"></label>
+      </div>
+    </div>
+
+    <div class="box11">
+      <h5 id="11">画一个三角形</h5>
+      <div class="wrapper">
+        <div class="box01"></div>
+        <div class="box02"></div>
+        <div class="box03"></div>
+        <div class="box04"></div>
+        <div class="box05"></div>
+        <div class="box06"></div>
+        <div class="box07"></div>
+      </div>
+    </div>
+
+    <div class="box12">
+      <h5 id="12">斑马线效果</h5>
+      <div class="wrapper">
+        <div class="box01"></div>
+        <div class="box02"></div>
+      </div>
+    </div>
+
+    <div class="box13">
+      <h5 id="13">加载动画（例一）</h5>
+      <div class="wrapper">
+        <div class="box">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box14">
+      <h5 id="14">加载动画（例二）</h5>
+      <div class="wrapper">
+        <div class="box">
+          <div class="loading"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box15">
+      <h5 id="15">按钮边框动画（例一）</h5>
+      <div class="wrapper">
+        <div class="box">
+          <button>提交</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box16">
+      <h5 id="16">按钮边框动画（例二）</h5>
+      <div class="wrapper">
+        <div class="box">
+          <button>提交</button>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box17">
+      <h5 id="17">悬停下滑线动画</h5>
+      <div class="wrapper">
+        <p>这是一段测试文本</p>
+      </div>
+    </div>
+
+    <div class="box18">
+      <h5 id="18">兄弟元素淡化</h5>
+      <div class="wrapper">
+        <ul class="box">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+    // 鼠标悬停渐变效果
+    document.querySelector('.box07 button').onmousemove = (e) => {
+      const x = e.pageX - e.target.offsetLeft
+      const y = e.pageY - e.target.offsetTop
+      e.target.style.setProperty('--x', `${x}px`)
+      e.target.style.setProperty('--y', `${y}px`)
+    }
+  </script>
+</body>
+
+</html>

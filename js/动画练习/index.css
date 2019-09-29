@@ -24,6 +24,7 @@ figure img {
   transition: all .35s;
   width: 120%;
   height: 100%;
+  object-fit: cover;
 }
 
 figure figcaption p,

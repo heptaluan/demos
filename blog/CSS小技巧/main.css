@@ -1,0 +1,789 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.main {
+  width: 800px;
+  height: auto;
+  border: 1px solid #ccc;
+  margin: 50px auto;
+  border-radius: 4px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h5 {
+  width: 100%;
+  background: #dedede;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  font-weight: normal;
+  color: #333;
+}
+
+
+/* --------------------------------- */
+
+.box01 {
+  margin-bottom: 60px;
+}
+
+.box01 .box {
+  width: 200px;
+  background: #499AFF;
+  margin: 0 auto;
+}
+
+.box01 .box::before {
+  content: '';
+  padding-top: 100%;
+  float: left;
+}
+
+.box01 .box::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* --------------------------------- */
+
+.box02 {
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.box02 .wrapper {
+  width: 710px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.box02 .wrapper div {
+  float: left;
+}
+
+.box02 .l,
+.box02 .c,
+.box02 .r {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #499AFF;
+  box-sizing: border-box;
+}
+
+.box02 .vs {
+  width: 55px;
+  line-height: 200px;
+  text-align: center;
+}
+
+.box02 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.box02 .c img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.box02 .r img {
+  object-fit: contain;
+  object-position: center;
+}
+
+/* --------------------------------- */
+
+.box03 {
+  margin-bottom: 60px;
+}
+
+.box03 .wrapper {
+  background: #499AFF;
+  display: flex;
+  justify-content: center;
+}
+
+.box03 .wrapper .center {
+  height: 150px;
+}
+
+.box03 .wrapper .center::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.box03 .wrapper .center p {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #fff;
+  background: rgb(0, 115, 255);
+  padding: 10px 20px;
+}
+
+/* --------------------------------- */
+
+.box04 {
+  margin-bottom: 60px;
+}
+
+.box04 .wrapper {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.box04 .wrapper .header {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: #499AFF;
+}
+
+.box04 .wrapper .content {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  height: 150px;
+  line-height: 150px;
+  background: rgb(44, 139, 255);
+}
+
+.box04 .wrapper .footer {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: rgb(23, 128, 255);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.box04 .wrapper .footer div {
+  font-size: 16px;
+  padding: 5px 0;
+}
+
+/* --------------------------------- */
+
+.box05 {
+  margin-bottom: 60px;
+}
+
+.box05 .wrapper {
+  width: 100%;
+  padding: 10px 25px;
+  background: #499AFF;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.box05 .wrapper ul ul {
+  padding: 0 20px;
+}
+
+.box05 .wrapper ul {
+  counter-reset: counter;
+}
+
+.box05 .wrapper ul li {
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.box05 .wrapper ul li::before {
+  font-size: 15px;
+  counter-increment: counter;
+  content: counters(counter, '.') ' ';
+}
+
+/* --------------------------------- */
+
+.box06 {
+  margin-bottom: 60px;
+}
+
+.box06 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box06 .wrapper .box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(75deg, #499AFF, #00ffb8);
+}
+
+.box06 .wrapper .box::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 10px;
+  background: inherit;
+  filter: blur(8px);
+  opacity: .7;
+  z-index: -1;
+}
+
+/* --------------------------------- */
+
+.box07 {
+  margin-bottom: 60px;
+}
+
+.box07 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box07 .wrapper button {
+  position: relative;
+  background: #499AFF;
+  padding: 20px 70px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.box07 .wrapper button::before {
+  --size: 0;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #00ffb8, transparent);
+  transform: translate(-50%, -50%);
+  transition: width .2s ease, height .2s ease;
+}
+
+.box07 .wrapper button:hover::before {
+  --size: 300px;
+}
+
+.box07 .wrapper span {
+  position: relative;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+/* --------------------------------- */
+
+.box08 {
+  margin-bottom: 60px;
+}
+
+.box08 .wrapper {
+  width: 100%;
+  background: #499AFF;
+  padding: 30px 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.box08 .wrapper p {
+  margin: 5px 0;
+}
+
+.box08 .wrapper p:last-child {
+  all: initial;
+}
+
+/* --------------------------------- */
+
+.box09 {
+  margin-bottom: 60px;
+}
+
+.box09 .wrapper {
+  width: 100%;
+}
+
+.box09 .wrapper .box {
+  width: 100%;
+  height: 50px;
+  background: #499AFF;
+  position: relative;
+}
+
+.box09 .wrapper .box::after {
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='m12 0l12 12h-24z' fill='%23fff'/%3E%3C/svg%3E");
+  position: absolute;
+  width: 100%;
+  height: 12px;
+  bottom: 0;
+  left: 1px;
+}
+
+/* --------------------------------- */
+
+.box10 {
+  margin-bottom: 60px;
+}
+
+.box10 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box10 .wrapper .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.box10 .wrapper .switch::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 18px;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+}
+
+.box10 .wrapper input[type="checkbox"]:checked+.switch::after {
+  transform: translateX(30px);
+}
+
+.box10 .wrapper input[type="checkbox"]:checked+.switch {
+  background-color: #499AFF;
+}
+
+.box10 .wrapper input[type="checkbox"] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+
+/* --------------------------------- */
+
+.box11 {
+  margin-bottom: 60px;
+}
+
+.box11 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box11 .wrapper div {
+  margin: 0 20px;
+}
+
+.box11 .wrapper .box01 {
+  width: 0;
+  height: 0;
+  border-top: 30px solid #499AFF;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.box11 .wrapper .box02 {
+  width: 0;
+  height: 0;
+  border-right: 30px solid #499AFF;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+.box11 .wrapper .box03 {
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid #499AFF;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.box11 .wrapper .box04 {
+  width: 0;
+  height: 0;
+  border-left: 30px solid #499AFF;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+.box11 .wrapper .box05 {
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid #499AFF;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.box11 .wrapper .box06 {
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #499AFF;
+  border-right: 2px solid #499AFF;
+}
+
+.box11 .wrapper .box07 {
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #499AFF;
+  border-right: 2px solid #499AFF;
+  transform: rotate(45deg);
+}
+
+
+/* --------------------------------- */
+
+.box12 {
+  margin-bottom: 60px;
+}
+
+.box12 .wrapper {
+  width: 100%;
+}
+
+.box12 .wrapper div {
+  margin-bottom: 20px;
+}
+
+.box12 .wrapper .box01 {
+  width: 100%;
+  height: 20px;
+  background-color: #499AFF;
+  background-image: linear-gradient(45deg, hsla(0, 0%, 100%, .15) 25%, transparent 0, transparent 50%, hsla(0, 0%, 100%, .15) 0, hsla(0, 0%, 100%, .15) 75%, transparent 0, transparent);
+  background-size: 36px 36px;
+}
+
+.box12 .wrapper .box02 {
+  width: 100%;
+  height: 20px;
+  background-color: #499AFF;
+  background-image: linear-gradient(45deg, hsla(0, 0%, 100%, .15) 25%, transparent 0, transparent 50%, hsla(0, 0%, 100%, .15) 0, hsla(0, 0%, 100%, .15) 75%, transparent 0, transparent);
+  background-size: 36px 36px;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 36px 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+
+/* --------------------------------- */
+
+.box13 {
+  margin-bottom: 60px;
+}
+
+.box13 .wrapper {
+  width: 100%;
+}
+
+@keyframes loading01 {
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.box13 .wrapper .box {
+  height: 80px;
+  background: #499AFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box13 .wrapper .box > div {
+  width: 12px;
+  height: 12px;
+  margin: 15px 8px;
+  background: #fff;
+  border-radius: 50%;
+  animation: loading01 .6s infinite alternate
+}
+
+.box13 .wrapper .box > div:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.box13 .wrapper .box > div:nth-child(3) {
+  animation-delay: .4s;
+}
+
+/* --------------------------------- */
+
+.box14 {
+  margin-bottom: 60px;
+}
+
+.box14 .wrapper {
+  width: 100%;
+}
+
+@keyframes loading02 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.box14 .wrapper .box {
+  height: 80px;
+  background: #499AFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box14 .wrapper .box .loading {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #00ffb8;
+  border-radius: 50%;
+  animation: loading02 3s infinite linear;
+}
+
+
+/* --------------------------------- */
+
+.box15 {
+  margin-bottom: 60px;
+}
+
+.box15 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box15 .wrapper button {
+  padding: 15px 50px;
+  outline: none;
+  border: none;
+  position: relative;
+  background: #499AFF;
+  cursor: pointer;
+  color: #fff;
+  transition: all .3s;
+}
+
+.box15 .wrapper button::before,
+.box15 .wrapper button::after {
+  border: 0 solid transparent;
+  transition: all .3s;
+  content: '';
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.box15 .wrapper button::before {
+  border-top: 2px solid rgb(41, 137, 255);
+  left: 0;
+  top: -8px;
+}
+
+.box15 .wrapper button::after {
+  border-bottom: 2px solid rgb(41, 137, 255);
+  right: 0;
+  bottom: -8px;
+}
+
+.box15 .wrapper button:hover {
+  background: rgb(41, 137, 255);
+} 
+
+.box15 .wrapper button:hover::before,
+.box15 .wrapper button:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------- */
+
+.box16 {
+  margin-bottom: 60px;
+}
+
+.box16 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box16 .wrapper .box {
+  position: relative;
+  overflow: hidden;
+}
+
+.box16 .wrapper .box div {
+  transition: all .35s;
+  cursor: pointer;
+}
+
+.box16 .wrapper .box div:nth-of-type(1) {
+  width: 126px;
+  height: 50px;
+  border: solid #499AFF;
+  border-width: 0 2px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(0, -200px);
+}
+
+.box16 .wrapper .box div:nth-of-type(2) {
+  width: 130px;
+  height: 46px;
+  border: solid #499AFF;
+  border-width: 2px 0;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  transform: translate(-200px, 0);
+}
+
+.box16 .wrapper .box button {
+  width: 130px;
+  height: 50px;
+  outline: none;
+  border: none;
+  position: relative;
+  background: #ccc;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+
+.box16 .wrapper .box:hover button {
+  background: rgb(187, 187, 187);
+}
+
+.box16 .wrapper .box:hover div:nth-of-type(1),
+.box16 .wrapper .box:hover div:nth-of-type(2) {
+  transform: translate(0, 0);
+}
+
+
+/* --------------------------------- */
+
+.box17 {
+  margin-bottom: 60px;
+}
+
+.box17 .wrapper {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #499AFF;
+}
+
+.box17 .wrapper p {
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  font-size: 16px;
+  
+}
+
+.box17 .wrapper p:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #fff;
+  transform-origin: bottom right;
+  transition: transform .3s ease-out;
+}
+
+.box17 .wrapper p:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+/* --------------------------------- */
+
+.box18 {
+  margin-bottom: 60px;
+}
+
+.box18 .wrapper .box {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.box18 .wrapper li {
+  list-style: none;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 20px;
+  background: #499AFF;
+  color: #fff;
+  transition: opacity .3s;
+  cursor: pointer;
+}
+
+.box18 .wrapper .box:hover li:not(:hover) {
+  opacity: 0.5;
+}
