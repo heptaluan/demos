@@ -535,7 +535,7 @@ h5 {
   align-items: center;
 }
 
-.box13 .wrapper .box > div {
+.box13 .wrapper .box>div {
   width: 12px;
   height: 12px;
   margin: 15px 8px;
@@ -544,11 +544,11 @@ h5 {
   animation: loading01 .6s infinite alternate
 }
 
-.box13 .wrapper .box > div:nth-child(2) {
+.box13 .wrapper .box>div:nth-child(2) {
   animation-delay: .2s;
 }
 
-.box13 .wrapper .box > div:nth-child(3) {
+.box13 .wrapper .box>div:nth-child(3) {
   animation-delay: .4s;
 }
 
@@ -638,7 +638,7 @@ h5 {
 
 .box15 .wrapper button:hover {
   background: rgb(41, 137, 255);
-} 
+}
 
 .box15 .wrapper button:hover::before,
 .box15 .wrapper button:hover::after {
@@ -733,7 +733,7 @@ h5 {
   color: #fff;
   position: relative;
   font-size: 16px;
-  
+
 }
 
 .box17 .wrapper p:after {
