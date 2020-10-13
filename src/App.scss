@@ -1,0 +1,48 @@
+.list-box {
+  height: 100%;
+  display: flex;
+
+  &>ul {
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #c1c1c1;
+      border-radius: 2.5px;
+    }
+  }
+}
+
+.ant-menu {
+  height: 100%;
+}
+
+.content,
+.box {
+  width: 100%;
+  height: 99%;
+  position: relative;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+iframe {
+  border: none;
+}
