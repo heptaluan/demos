@@ -10,7 +10,7 @@ class App extends Component {
     super(props)
     this.state = {
       data: data,
-      url: 'https://heptaluan.github.io/demos/project/元素拖拽旋转缩放/index.html'
+      url: 'https://heptaluan.github.io/demos/example/project/元素拖拽旋转缩放/index.html'
     }
 
     this.handleGetClickUrl = this.handleGetClickUrl.bind(this)
