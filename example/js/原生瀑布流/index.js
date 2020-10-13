@@ -5,16 +5,16 @@ window.onload = function () {
 
   var imgData = {
     'data': [
-      { 'src': '../../images/01.jpg' },
-      { 'src': '../../images/02.jpg' },
-      { 'src': '../../images/03.jpg' },
-      { 'src': '../../images/04.jpg' },
-      { 'src': '../../images/05.jpg' },
-      { 'src': '../../images/06.jpg' },
-      { 'src': '../../images/07.jpg' },
-      { 'src': '../../images/08.jpg' },
-      { 'src': '../../images/09.jpg' },
-      { 'src': '../../images/10.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/01.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/02.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/03.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/04.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/05.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/06.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/07.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/08.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/09.jpg' },
+      { 'src': 'https://gitee.com/heptaluan/backups/raw/master/demos/images/10.jpg' },
     ]
   };
 

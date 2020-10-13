@@ -47,7 +47,7 @@ li {
 }
 
 .box li:nth-of-type(3) {
-  background: url('../../images/01.jpg') no-repeat;
+  background: url('https://gitee.com/heptaluan/backups/raw/master/demos/images/01.jpg') no-repeat;
   background-size: cover;
   top: 0px;
   left: 0;
