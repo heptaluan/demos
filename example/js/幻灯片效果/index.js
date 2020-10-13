@@ -1,5 +1,5 @@
 (function () {
-  
+
   var box = document.getElementById('box');
   var link = box.getElementsByTagName('a');
   var bar = document.getElementById('bar');

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
-<meta charset="UTF-8">
-<title>元素框选</title>
-<script src="https://gitee.com/heptaluan/backups/raw/master/demos/jquery.js"></script>
-<style>
-.dragbox {float: left;list-style: none;width: 100px;height: 100px;border: 1px solid;margin: 20px;user-select: none;}
-.draging {background-color: aquamarine;}
-.selected {background-color: #FF0;}
-</style>
+  <meta charset="UTF-8">
+  <title>元素框选</title>
+  <script src="../../jquery.js"></script>
+  <style>
+    .dragbox {
+      float: left;
+      list-style: none;
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+      margin: 20px;
+      user-select: none;
+    }
+
+    .draging {
+      background-color: aquamarine;
+    }
+
+    .selected {
+      background-color: #FF0;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,8 +50,9 @@
     <li class="dragbox" id="box19">19</li>
     <li class="dragbox" id="box20">20</li>
   </ul>
-  <div id="selectionRect" style="position: absolute;background-color: rgba(137,189,189,0.5);border:1px solid rgb(137,189,189);"></div>
-  
+  <div id="selectionRect"
+    style="position: absolute;background-color: rgba(137,189,189,0.5);border:1px solid rgb(137,189,189);"></div>
+
 </body>
 
 </html>
@@ -67,7 +83,7 @@
       });
     }
   });
-  
+
   // 设定位置
   function resizeToPoint(x, y) {
     var width = Math.abs(x - startX);
@@ -99,7 +115,7 @@
     yNotCross = ((rect1.y1 > rect2.y2) || (rect2.y1 > rect1.y2));
     return !(xNotCross || yNotCross);
   }
-  
+
   // 获取元素的矩形的起始点坐标与其对角点坐标
   function getRect($el) {
     var x1 = $el.offset().left;

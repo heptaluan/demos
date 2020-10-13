@@ -46,45 +46,61 @@
   pointer-events: auto;
 }
 
-.magic-box .tl {
+.nw {
+  width: 12px;
+  height: 12px;
   top: -5px;
   left: -5px;
 }
 
-.magic-box .t {
+.n {
+  width: 10px;
+  height: 10px;
   top: -5px;
   left: 50%;
   margin-left: -5px;
 }
 
-.magic-box .tr {
+.ne {
+  width: 12px;
+  height: 12px;
   top: -5px;
   right: -5px;
 }
 
-.magic-box .r {
+.e {
+  width: 10px;
+  height: 10px;
   top: 50%;
   margin-top: -5px;
   right: -5px;
 }
 
-.magic-box .br {
+.se {
+  width: 12px;
+  height: 12px;
   bottom: -5px;
   right: -5px;
 }
 
-.magic-box .b {
+.s {
+  width: 10px;
+  height: 10px;
   bottom: -5px;
   left: 50%;
   margin-left: -5px;
 }
 
-.magic-box .bl {
+.sw {
+  width: 12px;
+  height: 12px;
   bottom: -5px;
   left: -5px;
 }
 
-.magic-box .l {
+.w {
+  width: 10px;
+  height: 10px;
   left: -5px;
   top: 50%;
   margin-top: -5px;

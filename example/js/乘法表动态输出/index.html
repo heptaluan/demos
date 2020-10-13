@@ -29,43 +29,43 @@
 <body>
 
   <div id="result"></div>
-  
+
   <script>
 
     function create() {
-      var html = [];
+      var html = []
       for (var i = 1; i <= 9; i++) {
         for (var j = 1; j <= i; j++) {
-          html.push('<span>' + j + '*' + i + ' = ' + (i * j) + '</span>');
+          html.push('<span>' + j + '*' + i + ' = ' + (i * j) + '</span>')
         }
-        html.push('<br/>');
+        html.push('<br/>')
       }
-      return html;
+      return html
     }
 
     function render() {
-      
+
       var html = create(),
         i = 0,
         tmp = create(),
         timer = null,
-        result = document.getElementById('result');
+        result = document.getElementById('result')
 
       timer = setInterval(function () {
         if (i > html.length) {
-          html.splice(html.length - 1, 1);
-          result.innerHTML = html.join('');
+          html.splice(html.length - 1, 1)
+          result.innerHTML = html.join('')
         } else {
-          result.innerHTML += html[i++];
+          result.innerHTML += html[i++]
         }
         if (!html.length) {
-          result.innerHTML = tmp.join('');
-          clearInterval(timer);
+          result.innerHTML = tmp.join('')
+          clearInterval(timer)
         }
-      }, 100);
+      }, 100)
     }
 
-    render();
+    render()
 
   </script>
 </body>

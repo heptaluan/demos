@@ -112,138 +112,138 @@ MyDate.prototype.createCal = function (box, year, month) {
         </div>
         `
 
-        document.getElementById('myDate').innerHTML = myCalendar;
+  document.getElementById('myDate').innerHTML = myCalendar;
 
-        // 绑定月切换事件
-        this.prevMonth(box, year, month)
-        this.nextMonth(box, year, month)
-      
-        // 绑定年切换事件
-        this.prevYear(box, year, month)
-        this.nextYear(box, year, month)
-      
-        // 绑定点击事件
-        this.intervalClick(box, year, month)
-      
-        // 获取当前月份的今天，添加高亮
-        var d = new Date();
-        var thisYear = d.getFullYear()
-        var thisMonth = d.getMonth() + 1
-        var today = d.getDate()
-      
-        if (document.getElementById('calMonth').innerHTML == thisMonth && document.getElementById('calYear').innerHTML == thisYear) {
-          document.querySelectorAll('.myDay')[today - 1].classList.add('chooseDay')
-        }
-      
-        // 绑定确定事件
-        this.onSure()
-      
+  // 绑定月切换事件
+  this.prevMonth(box, year, month)
+  this.nextMonth(box, year, month)
+
+  // 绑定年切换事件
+  this.prevYear(box, year, month)
+  this.nextYear(box, year, month)
+
+  // 绑定点击事件
+  this.intervalClick(box, year, month)
+
+  // 获取当前月份的今天，添加高亮
+  var d = new Date();
+  var thisYear = d.getFullYear()
+  var thisMonth = d.getMonth() + 1
+  var today = d.getDate()
+
+  if (document.getElementById('calMonth').innerHTML == thisMonth && document.getElementById('calYear').innerHTML == thisYear) {
+    document.querySelectorAll('.myDay')[today - 1].classList.add('chooseDay')
+  }
+
+  // 绑定确定事件
+  this.onSure()
+
+}
+
+
+// 上一个月点击事件
+MyDate.prototype.prevMonth = function (box, year, month) {
+
+  var prev = document.querySelector('.prevMonth');
+  var _this = this;
+
+  prev.addEventListener('click', function () {
+
+    var y = year;
+    var m = month;
+
+    m--;
+
+    if (m == 0) {
+      m = 12;
+      y = y - 1;
+    }
+
+    _this.createCal(box, y, m);
+
+  }, false)
+
+}
+
+// 下一个月点击事件
+MyDate.prototype.nextMonth = function (box, year, month) {
+
+  var next = document.querySelector('.nextMonth');
+  var _this = this;
+
+  next.addEventListener('click', function () {
+
+    var y = year;
+    var m = month;
+
+    m++;
+
+    if (m == 13) {
+      m = 1;
+      y = y + 1;
+    }
+
+    _this.createCal(box, y, m);
+
+  }, false)
+
+}
+
+// 上一年的点击事件
+MyDate.prototype.prevYear = function (box, year, month) {
+
+  var prev = document.querySelector('.prevYear');
+  var _this = this;
+
+  prev.addEventListener('click', function () {
+
+    var y = year;
+    var m = month;
+
+    y--;
+
+    _this.createCal(box, y, m);
+
+  }, false)
+}
+
+// 下一年的点击事件
+MyDate.prototype.nextYear = function (box, year, month) {
+
+  var next = document.querySelector('.nextYear');
+  var _this = this;
+
+  next.addEventListener('click', function () {
+
+    var y = year;
+    var m = month;
+
+    y++;
+
+    _this.createCal(box, y, m);
+
+  }, false)
+}
+
+// 日历月份点击事件
+MyDate.prototype.intervalClick = function (box, year, month) {
+  var span = document.querySelectorAll('.myDay')
+  for (var i = 0; i < span.length; i++) {
+    span[i].addEventListener('click', function () {
+      for (var j = 0; j < span.length; j++) {
+        span[j].classList.remove('chooseDay')
       }
-      
-      
-      // 上一个月点击事件
-      MyDate.prototype.prevMonth = function (box, year, month) {
-      
-        var prev = document.querySelector('.prevMonth');
-        var _this = this;
-      
-        prev.addEventListener('click', function () {
-      
-          var y = year;
-          var m = month;
-      
-          m--;
-      
-          if (m == 0) {
-            m = 12;
-            y = y - 1;
-          }
-      
-          _this.createCal(box, y, m);
-      
-        }, false)
-      
-      }
-      
-      // 下一个月点击事件
-      MyDate.prototype.nextMonth = function (box, year, month) {
-      
-        var next = document.querySelector('.nextMonth');
-        var _this = this;
-      
-        next.addEventListener('click', function () {
-      
-          var y = year;
-          var m = month;
-      
-          m++;
-      
-          if (m == 13) {
-            m = 1;
-            y = y + 1;
-          }
-      
-          _this.createCal(box, y, m);
-      
-        }, false)
-      
-      }
-      
-      // 上一年的点击事件
-      MyDate.prototype.prevYear = function (box, year, month) {
-      
-        var prev = document.querySelector('.prevYear');
-        var _this = this;
-      
-        prev.addEventListener('click', function () {
-      
-          var y = year;
-          var m = month;
-      
-          y--;
-      
-          _this.createCal(box, y, m);
-      
-        }, false)
-      }
-      
-      // 下一年的点击事件
-      MyDate.prototype.nextYear = function (box, year, month) {
-      
-        var next = document.querySelector('.nextYear');
-        var _this = this;
-      
-        next.addEventListener('click', function () {
-      
-          var y = year;
-          var m = month;
-      
-          y++;
-      
-          _this.createCal(box, y, m);
-      
-        }, false)
-      }
-      
-      // 日历月份点击事件
-      MyDate.prototype.intervalClick = function (box, year, month) {
-        var span = document.querySelectorAll('.myDay')
-        for (var i = 0; i < span.length; i++) {
-          span[i].addEventListener('click', function () {
-            for (var j = 0; j < span.length; j++) {
-              span[j].classList.remove('chooseDay')
-            }
-            this.classList.add('chooseDay')
-          })
-        }
-      }
-      
-      // 确定点击事件
-      MyDate.prototype.onSure = function (box, year, month) {
-        var sure = document.querySelector('.sure');
-      
-        sure.addEventListener('click', function () {
-          var chooseDay = document.querySelector('.chooseDay').getAttribute('data-day')
-          alert(`当前选中的是：${chooseDay}`)
-        })
-      }
+      this.classList.add('chooseDay')
+    })
+  }
+}
+
+// 确定点击事件
+MyDate.prototype.onSure = function (box, year, month) {
+  var sure = document.querySelector('.sure');
+
+  sure.addEventListener('click', function () {
+    var chooseDay = document.querySelector('.chooseDay').getAttribute('data-day')
+    alert(`当前选中的是：${chooseDay}`)
+  })
+}

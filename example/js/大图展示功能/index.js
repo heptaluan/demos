@@ -15,7 +15,7 @@ window.onload = function () {
       // 创建一个图片节点
       var oImg = document.createElement('img');
       var img = new Image();
-      
+
       // 设置其的 src 属性，并添加到 oBig 中，同时加上鼠标移入状态 class--active 并让其显示
       img.src = oImg.src = aLi[this.index].getElementsByTagName('img')[0].src.replace('.jpg', '.jpg');
       oBig.appendChild(oImg);

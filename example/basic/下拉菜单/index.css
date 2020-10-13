@@ -1,0 +1,108 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body,
+div,
+form,
+h2,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  background: #23384e;
+  font: 12px/1.5 \5fae\8f6f\96c5\9ed1;
+}
+
+#search,
+#search form,
+#search .box,
+#search .select,
+#search a {
+  background: url(search.jpg) no-repeat;
+}
+
+#search,
+#search .box,
+#search form {
+  height: 34px;
+}
+
+#search {
+  position: relative;
+  width: 350px;
+  margin: 10px auto;
+}
+
+#search .box {
+  background-position: right 0;
+}
+
+#search form {
+  background-repeat: repeat-x;
+  background-position: 0 -34px;
+  margin: 0 20px 0 40px;
+}
+
+#search .select {
+  float: left;
+  color: #fff;
+  width: 190px;
+  height: 22px;
+  cursor: pointer;
+  margin-top: 4px;
+  line-height: 22px;
+  padding-left: 10px;
+  background-position: 0 -68px;
+}
+
+#search a {
+  float: left;
+  width: 80px;
+  height: 24px;
+  color: #333;
+  letter-spacing: 4px;
+  line-height: 22px;
+  text-align: center;
+  text-decoration: none;
+  background-position: 0 -90px;
+  margin: 4px 0 0 10px;
+}
+
+#search a:hover {
+  color: #f60;
+  background-position: -80px -90px;
+}
+
+#search .sub {
+  position: absolute;
+  top: 26px;
+  left: 40px;
+  color: #fff;
+  width: 198px;
+  background: #2b2b2b;
+  border: 1px solid #fff;
+  display: none;
+}
+
+#search .sub li {
+  height: 25px;
+  line-height: 24px;
+  cursor: pointer;
+  padding-left: 10px;
+  margin-bottom: -1px;
+  border-bottom: 1px dotted #fff;
+}
+
+#search .sub li.hover {
+  background: #8b8b8b;
+}

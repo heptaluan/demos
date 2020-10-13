@@ -2,7 +2,7 @@
   var bar = document.getElementById('bar');
   var sub = document.getElementById('sub');
   var div = sub.getElementsByTagName('div');
-  
+
   sub.style.width = w_width() - 80 + 'px';
   div[0].style.right = 914 + w_width() / 2 - 1102 + 'px';
   div[1].style.right = 184 + w_width() / 2 - 1096 + 'px';

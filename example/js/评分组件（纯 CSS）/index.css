@@ -3,6 +3,37 @@
   padding: 0;
 }
 
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.eot?t=1566010168352'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.eot?t=1566010168352#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAO8AAsAAAAAB8wAAANtAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDNIJ9ATYCJAMMCwgABCAFhG0HNxvEBhHVm8nIfg64m8syMyNFxW0wtS7DY92cvgnL6DIzc8fD9/u1c99/q9ogiSaG7tNFk2iiUsImoJECnZIJxUvYIbtsLnOxvAjgjkYn4KX6A2BzridVoyLUSO783qMvJMVRmqf/OVzaFJ+/bbnMMTnqBRgHFNjYAyTgO5AD8nvArgbd1HYCdbNkEPbMbBBAIbP6BeIxNNgXUOR0cktxqArlmqlZvCBVTZO0w3P4+/G/HhQkpYI1dP/BNAAYfJm+68C0aZqHj8CfzgJhFgXWAJm4qLWdg3FsDVTXZMT27LIspKmC/6chT1eUN/qPl4gyq7AJllCTXBTfZRJ863BR7vodlPOJCfDOYIenhLiWiCwQq2lo7GXtXuTCGlrZ8doWMaxnIG1dwIHU9YkgXU2saHUzUM2L472FosPq67rYsBoWpGtmYYQbr4VwQ0vroni0BDveuFg4z4lWs6Ld881NHEgVHFU/JNKVeOCAoKdo85wYhnQt8J/jOHbk1DAqzrHlstFe1up+zlPUemr38AkbE3umYxxrpTiHMMs4Y8dufMb+jMmIoPBKGdrYLtmONaadMI8KqqzdVy69287EOs7MId5uTS5KbsSX5ZvOlmnE/+81/zWWK24UbKzj/EPx6T8bv9IEjAr+TsEauwLl0Sm0seT3iGAAz03Br/j0IXrWcTEO2Wig+TpKlaptTGlDYUZuwRSys0U7gTvxgikbl6W01jFJ4X7h+nchKWkjZiZiJJTP6Mg0HapFzXD0meQbF/ABMH2HY4UAJs5gfyH63/7G4dsSwZte5x8FdQafyUUa6JmeEQHNAVTvyh78JT6xKutCS19klefyTEfhmmBJIEeU+zel0Hc3XDEilxKqRgMcFTMpFKrmkBm7BiUNG1BWtQl1q8xnNwzEgSLXsCIbIHSNQtL2AYWuXWTG3kLJ2Dco6waEutNgXrJhAYyojBm1oAPzh2jXhRyjqKj4hv5dNGeFIe6FXGMQ+qYrJq+4IE8xon78IEJAvM4wwW5YygobrwmtNEFkG9uW6j7U2HU+KMaMWtAB8wfRrgv59UWVfv6G/l00t1TUWF/INTYPeo2OgLzKFlLFrdxSP34gQoB4ncEEFix2bAVbfaeEVhphQGQbtUwtosqa5RXz+20AACrWWBgkBEggArKnpYrmi6c9HAAAAAA=') format('woff2'),
+  url('//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.woff?t=1566010168352') format('woff'),
+  url('//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.ttf?t=1566010168352') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.svg?t=1566010168352#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconunstar:before {
+  content: "\e645";
+}
+
+.iconstar:before {
+  content: "\e73c";
+}
+
+.box {
+  width: 155px;
+  margin: 120px auto;
+}
+
+
 /* ============================== 第一种 ================================ */
 
 /* 首先添加默认样式 */
@@ -37,8 +68,8 @@ input {
 /* 添加选中和鼠标移入状态，连带右侧兄弟节点一起设置 */
 .star01 input[name='rate']:checked::after,
 .star01 input[name='rate']:hover::after,
-.star01 input[name='rate']:checked ~ input[name='rate']::after,
-.star01 input[name='rate']:hover ~ input[name='rate']::after {
+.star01 input[name='rate']:checked~input[name='rate']::after,
+.star01 input[name='rate']:hover~input[name='rate']::after {
   content: '\e73c';
   color: #ffa822;
 }
@@ -83,8 +114,8 @@ input {
 /* 添加选中和鼠标移入状态，连带右侧兄弟节点一起设置 */
 .star02 input[name='rate']:checked::after,
 .star02 input[name='rate']:hover::after,
-.star02 input[name='rate']:checked ~ input[name='rate']::after,
-.star02 input[name='rate']:hover ~ input[name='rate']::after {
+.star02 input[name='rate']:checked~input[name='rate']::after,
+.star02 input[name='rate']:hover~input[name='rate']::after {
   content: '\e73c';
   color: #ffa822;
 }
@@ -122,7 +153,7 @@ input {
 }
 
 /* 将紧接在选中元素之后的 item 清除掉背景色 */
-.star03 input[type='radio']:checked + .star-item ~ .star-item {
+.star03 input[type='radio']:checked+.star-item~.star-item {
   background-position: center bottom;
 }
 
@@ -132,7 +163,7 @@ input {
 }
 
 /* item 鼠标移入右侧清空背景色 */
-label.star-item:hover ~ .star-item {
+label.star-item:hover~.star-item {
   background-position: center bottom !important;
 }
 
@@ -153,7 +184,7 @@ label.star-item:hover ~ .star-item {
 }
 
 /* 获取选中元素的对应 title */
-input[type='radio']:checked + .star-item:after {
+input[type='radio']:checked+.star-item:after {
   content: attr(title)
 }
 

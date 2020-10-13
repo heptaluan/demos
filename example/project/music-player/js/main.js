@@ -52,8 +52,8 @@ $(function () {
 
 
 	/*-------------------------- +
-  		键盘事件
- 	+-------------------------- */
+			键盘事件
+		+-------------------------- */
 	$(document).bind("keydown", function (e) {
 		switch (e.which) {
 			case 13:
@@ -81,8 +81,8 @@ $(function () {
 	});
 
 	/*-------------------------- +
-  		进度条样式
- 	+-------------------------- */
+			进度条样式
+		+-------------------------- */
 	$(".progress").click(function (e) {
 		var x = (e.offsetX || e.originalEvent.layerX) / $(this).width();
 		Player.currentTime = Player.duration * x;
@@ -104,8 +104,8 @@ $(function () {
 	});
 
 	/*-------------------------- +
-  		点击图片 播放/暂停
- 	+-------------------------- */
+			点击图片 播放/暂停
+		+-------------------------- */
 	function Play() {
 		$(".cover").fadeTo(400, 1);
 		Player.play();
@@ -132,15 +132,15 @@ $(function () {
 	};
 
 	/*-------------------------- +
-  		播放列表 hover
- 	+-------------------------- */
+			播放列表 hover
+		+-------------------------- */
 	function List_Hover(obj) {
 		obj.toggleClass("hover");
 	};
 
 	/*-------------------------- +
-  		播放列表前面小图标
- 	+-------------------------- */
+			播放列表前面小图标
+		+-------------------------- */
 	function List_Scroll(obj) {
 		var position = obj.index() * obj.outerHeight();
 		$("#scroll-box").stop().animate({ marginTop: position }, 800, 'easeOutCubic');
@@ -154,8 +154,8 @@ $(function () {
 	};
 
 	/*-------------------------- +
-  		AJAX调用
- 	+-------------------------- */
+			AJAX调用
+		+-------------------------- */
 	function List_Ajax() {
 		$.ajax({
 			url: 'music/music.json',

@@ -22,7 +22,7 @@ Drag.prototype.fnDown = function (ev) {
   document.onmousemove = function (ev) {
     _this.fnMove(ev);
   };
-  
+
   document.onmouseup = function () {
     _this.fnUp();
   };

@@ -1,6 +1,6 @@
 
 window.onload = function () {
-  
+
   imgLocation('container', 'box');
 
   var imgData = {

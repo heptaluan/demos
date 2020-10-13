@@ -2,20 +2,67 @@
 <html>
 
 <head>
-<meta charset='utf-8'>
-<title>选项卡</title>
-<style>
-body,ul,li{margin:0;padding:0;}
-body{font:12px/1.5 Tahoma;}
-#outer{width:450px;margin:10px auto;}
-#tab{overflow:hidden;zoom:1;background:#000;border:1px solid #000;}
-#tab li{float:left;color:#fff;height:30px;cursor:pointer;line-height:30px;list-style-type:none;padding:0 20px;}
-#tab li.current{color:#000;background:#ccc;}
-#content{border:1px solid #000;border-top-width:0;}
-#content ul{line-height:25px;display:none;margin:0 30px;padding:10px 0;}
-#content ul li{cursor: pointer;}
-#content ul li:hover{color: #406599;}
-</style>
+  <meta charset='utf-8'>
+  <title>选项卡</title>
+  <style>
+    body,
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font: 12px/1.5 Tahoma;
+    }
+
+    #outer {
+      width: 450px;
+      margin: 10px auto;
+    }
+
+    #tab {
+      overflow: hidden;
+      zoom: 1;
+      background: #000;
+      border: 1px solid #000;
+    }
+
+    #tab li {
+      float: left;
+      color: #fff;
+      height: 30px;
+      cursor: pointer;
+      line-height: 30px;
+      list-style-type: none;
+      padding: 0 20px;
+    }
+
+    #tab li.current {
+      color: #000;
+      background: #ccc;
+    }
+
+    #content {
+      border: 1px solid #000;
+      border-top-width: 0;
+    }
+
+    #content ul {
+      line-height: 25px;
+      display: none;
+      margin: 0 30px;
+      padding: 10px 0;
+    }
+
+    #content ul li {
+      cursor: pointer;
+    }
+
+    #content ul li:hover {
+      color: #406599;
+    }
+  </style>
 </head>
 
 <body>
