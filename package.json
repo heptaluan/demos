@@ -13,6 +13,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
+  "homepage": "./build/",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
