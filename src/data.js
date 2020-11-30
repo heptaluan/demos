@@ -203,6 +203,10 @@ export const data = {
   ],
   Blog: [
     {
+      name: '相交非轴对称（OBB）',
+      val: 'https://heptaluan.github.io/demos/example/blog/OBB.html'
+    },
+    {
       name: 'IntersectionObserver',
       val: 'https://heptaluan.github.io/demos/example/blog/IntersectionObserver.html'
     },
