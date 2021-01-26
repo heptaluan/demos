@@ -787,3 +787,52 @@ h5 {
 .box18 .wrapper .box:hover li:not(:hover) {
   opacity: 0.5;
 }
+
+/* --------------------------------- */
+
+.box19 {
+  margin-bottom: 60px;
+}
+
+.box19 .wrapper .box {
+  display: flex;
+  align-items: center;
+}
+
+.box19 .wrapper .box div {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background: #499AFF;
+  transition: flex 1s;
+}
+
+.box19 .wrapper .box div:target {
+  flex: 1;
+  background: lightcoral;
+}
+
+/* --------------------------------- */
+
+.box20 .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box20 .wrapper button {
+  padding: 1em 3em;
+  border-radius: .2em;
+  outline: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(#3de5fb, #26acbd);
+  text-shadow: 0 1px 1px grey;
+  box-shadow: 0 0.3em 0 #068494, 0 0.3em 0.3em grey;
+}
+
+.box20 .wrapper button:active {
+  box-shadow: 0 0.1em 0 #068494, 0 0.1em 0.1em grey;
+  transition: translate(0, 0.05em);
+}
